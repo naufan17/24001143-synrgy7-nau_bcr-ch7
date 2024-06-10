@@ -1,4 +1,5 @@
 import React from 'react';
+import { Facebook, Instagram, Twitter, Mail, Twitch } from 'feather-icons-react';
 
 export default function Footer(){
     return (
@@ -46,19 +47,19 @@ export default function Footer(){
                         </p>
                         <div className="flex">
                             <div className="w-10 h-10 p-1 mr-4 rounded-full bg-blue-700">
-                                <i data-feather="facebook" className="w-8 mt-1 text-white"></i>
+                                <Facebook color="white" className="mt-1 ml-1"/>
                             </div>
                             <div className="w-10 h-10 p-1 mr-4 rounded-full bg-blue-700">
-                                <i data-feather="instagram" className="w-8 mt-1 text-white"></i>
+                                <Instagram color="white" className="mt-1 ml-1"/>
                             </div>
                             <div className="w-10 h-10 p-1 mr-4 rounded-full bg-blue-700">
-                                <i data-feather="twitter" className="w-8 mt-1 text-white"></i>
+                                <Twitter color="white" className="mt-1 ml-1"/>
                             </div>
                             <div className="w-10 h-10 p-1 mr-4 rounded-full bg-blue-700">
-                                <i data-feather="mail" className="w-8 mt-1 text-white"></i>
+                                <Mail color="white" className="mt-1 ml-1"/>
                             </div>
                             <div className="w-10 h-10 p-1 mr-4 rounded-full bg-blue-700">
-                                <i data-feather="twitch" className="w-8 mt-1 text-white"></i>
+                                <Twitch color="white" className="mt-1 ml-1"/>
                             </div>
                         </div>
                     </div>

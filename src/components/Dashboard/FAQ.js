@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChevronUp, ChevronDown } from 'feather-icons-react'
 
 export default function FAQ(){
     return (
@@ -23,7 +24,7 @@ export default function FAQ(){
                                         Apa saja yang dibutuhkan?
                                     </p>
                                     <div className="flex items-center justify-center">
-                                        <i data-feather="chevron-down" className="w-6 h-6 arrow-icon"></i>
+                                        <ChevronDown/>
                                     </div>
                                 </button>
                                 <div className="p-4 pt-0 hidden">
@@ -38,7 +39,7 @@ export default function FAQ(){
                                         Berapa hari minimal sewa mobil lepas kunci?
                                     </p>
                                     <div className="flex items-center justify-center">
-                                        <i data-feather="chevron-down" className="w-6 h-6 arrow-icon"></i>
+                                        <ChevronDown/>
                                     </div>
                                 </button>
                                 <div className="p-4 pt-0 hidden">
@@ -53,7 +54,7 @@ export default function FAQ(){
                                         Berapa hari sebelumnya sebaiknya booking sewa mobil?
                                     </p>
                                     <div className="flex items-center justify-center">
-                                        <i data-feather="chevron-down" className="w-6 h-6 arrow-icon"></i>
+                                        <ChevronDown/>
                                     </div>
                                 </button>
                                 <div className="p-4 pt-0 hidden">
@@ -68,7 +69,7 @@ export default function FAQ(){
                                         Apakah Ada biaya antar jemput?
                                     </p>
                                     <div className="flex items-center justify-center">
-                                        <i data-feather="chevron-down" className="w-6 h-6 arrow-icon"></i>
+                                        <ChevronDown/>
                                     </div>
                                 </button>
                                 <div className="p-4 pt-0 hidden">
@@ -83,7 +84,7 @@ export default function FAQ(){
                                         Bagaimana jika terjadi kecelakaan?
                                     </p>
                                     <div className="flex items-center justify-center">
-                                        <i data-feather="chevron-down" className="w-6 h-6 arrow-icon"></i>
+                                        <ChevronDown/>
                                     </div>
                                 </button>
                                 <div className="p-4 pt-0 hidden">

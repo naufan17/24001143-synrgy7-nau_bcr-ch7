@@ -1,4 +1,5 @@
 import React from 'react';
+import { Menu, X } from 'feather-icons-react';
 
 export default function Header() {
     return (
@@ -36,7 +37,7 @@ export default function Header() {
                         </ul>
                         <div className="lg:hidden">
                         <button id="openMenu" aria-label="Open Menu" title="Open Menu">
-                            <i data-feather="menu" className="w-10 h-8"></i>
+                            <Menu/>
                         </button>     
                         </div>
                     </div>
@@ -49,7 +50,7 @@ export default function Header() {
                                     BCR
                                 </p>
                                 <button id="closeMenu" aria-label="Close Menu" title="Close Menu">
-                                <i data-feather="x" className="w-8"></i>
+                                    {X}
                                 </button>
                             </div>
                             <ul className="space-y-4">
@@ -99,7 +100,7 @@ export default function Header() {
                     </a>
                 </div>
                 <div className="flex justify-center lg:absolute bottom-0 right-0">
-                    <img src="images/img_car.png" className="object-cover object-top w-full max-w-xl lg:h-auto lg:max-w-screen-sm" alt="Car"/>
+                    <img src="./images/img_car.png" className="object-cover object-top w-full max-w-xl lg:h-auto lg:max-w-screen-sm" alt="Car"/>
                 </div>
             </div>
         </header>

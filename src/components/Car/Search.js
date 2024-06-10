@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Car from './Car'
 
 export default function Search(){
+    const [cars, setCars] = useState([])
+
+    const getCars = async () => {
+        try {
+            const result = await axios.get('https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/data/cars.min.json');
+            setCars(result.data)
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    useEffect(() => {
+        getCars();
+    }, []);
+
     return (
         <section id="Search">
             <div className="relative px-8 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-12 lg:py-6">
@@ -59,6 +76,23 @@ export default function Search(){
                             </button>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="relative px-8 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-12 lg:py-6">
+                <div className="grid gap-4 md:gap-6 lg:grid-cols-3 md:grid-cols-2">
+                    {cars.map(car =>
+                        <Car
+                            id = {car.id}
+                            image = {car.image}
+                            manufacture = {car.manufacture}
+                            type = {car.type} 
+                            rentPerDay = {car.rentPerDay}
+                            description = {car.description}
+                            capacity = {car.capacity}
+                            transmission = {car.transmission}
+                            year = {car.year}
+                        />
+                    )}
                 </div>
             </div>
         </section>

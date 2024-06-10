@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThumbsUp, Tag, Clock, Award } from 'feather-icons-react';
 
 export default function WhyUs(){
     return (
@@ -15,7 +16,7 @@ export default function WhyUs(){
                 <div className="grid gap-4 md:gap-6 lg:grid-cols-4 md:grid-cols-2">
                     <div className="px-4 py-4 border-2 rounded-lg lg:px-6 lg:py-6">
                         <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-yellow-400">
-                            <i data-feather="thumbs-up" className="text-white"></i>
+                            <ThumbsUp color="white"/>
                         </div>
                         <h3 className="mb-3 text-lg sm:text-xl font-bold font-sans">
                             Mobil Lengkap
@@ -26,7 +27,7 @@ export default function WhyUs(){
                     </div>
                     <div className="px-4 py-4 border-2 rounded-lg lg:px-6 lg:py-6">
                         <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-red-500">
-                            <i data-feather="tag" className="text-white"></i>
+                            <Tag color="white"/>
                         </div>
                         <h3 className="mb-3 text-lg sm:text-xl font-bold font-sans">
                             Harga Murah
@@ -37,7 +38,7 @@ export default function WhyUs(){
                     </div>
                     <div className="px-4 py-4 border-2 rounded-lg lg:px-6 lg:py-6">
                         <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-blue-700">
-                            <i data-feather="clock" className="text-white"></i>
+                            <Clock color="white"/>
                         </div>
                         <h3 className="mb-3 text-lg sm:text-xl font-bold font-sans">
                             Layanan 24 Jam
@@ -48,7 +49,7 @@ export default function WhyUs(){
                     </div>
                     <div className="px-4 py-4 border-2 rounded-lg lg:px-6 lg:py-6">
                         <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-green-500">
-                            <i data-feather="award" className="text-white"></i>
+                            <Award color="white"/>
                         </div>
                         <h3 className="mb-3 text-lg sm:text-xl font-bold font-sans">
                             Sopir Profesional

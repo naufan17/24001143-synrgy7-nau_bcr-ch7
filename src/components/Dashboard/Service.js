@@ -1,4 +1,5 @@
 import React from 'react';
+import { Check } from 'feather-icons-react'
 
 export default function Service(){    
     return (
@@ -21,31 +22,31 @@ export default function Service(){
                         <ul className="space-y-5">
                             <li className="flex text-base font-sans">
                                 <span className="mr-4 bg-blue-200 rounded-full p-px">
-                                    <i data-feather="check" className="w-6 text-blue-800"></i>
+                                    <Check color="blue"/>
                                 </span>
                                 Sewa Mobil Dengan Supir di Bali 12 Jam
                             </li>
                             <li className="flex text-base font-sans">
                                 <span className="mr-4 bg-blue-200 rounded-full p-px">
-                                    <i data-feather="check" className="w-6 text-blue-800"></i>
+                                    <Check color="blue"/>
                                 </span>
                                 Sewa Mobil Lepas Kunci di Bali 24 Jam
                             </li>
                             <li className="flex text-base font-sans">
                                 <span className="mr-4 bg-blue-200 rounded-full p-px">
-                                    <i data-feather="check" className="w-6 text-blue-800"></i>
+                                    <Check color="blue"/>
                                 </span>
                                 Sewa Mobil Jangka Panjang Bulanan
                             </li>
                             <li className="flex text-base font-sans">
                                 <span className="mr-4 bg-blue-200 rounded-full p-px">
-                                    <i data-feather="check" className="w-6 text-blue-800"></i>
+                                    <Check color="blue"/>
                                 </span>
                                 Gratis Antar - Jemput Mobil di Bandara
                             </li>
                             <li className="flex text-base font-sans">
                                 <span className="mr-4 bg-blue-200 rounded-full p-px">
-                                    <i data-feather="check" className="w-6 text-blue-800"></i>
+                                    <Check color="blue"/>
                                 </span>
                                 Layanan Airport Transfer / Drop In Out
                             </li>

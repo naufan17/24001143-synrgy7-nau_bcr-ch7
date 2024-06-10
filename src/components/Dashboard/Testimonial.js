@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChevronRight, ChevronLeft } from 'feather-icons-react'
 
 export default function Testimonial(){
     return (
@@ -91,10 +92,10 @@ export default function Testimonial(){
                 </div>
                 <div className="flex justify-center mt-8">
                     <button id="prevButton" className="p-1 w-9 h-9 border rounded-full mr-2 hover:text-white hover:bg-green-500">
-                        <i data-feather="chevron-left" className="w-6 h-6"></i>
+                        <ChevronLeft/>
                     </button>
                     <button id="nextButton" className="p-1 w-9 h-9 border rounded-full ml-2 hover:text-white hover:bg-green-500">
-                        <i data-feather="chevron-right" className="w-6 h-6"></i>
+                        <ChevronRight/>
                     </button>
                 </div>
             </div>
