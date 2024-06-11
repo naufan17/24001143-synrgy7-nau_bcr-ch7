@@ -8,7 +8,7 @@ export default function Car({ id, image, manufacture, type, rentPerDay, descript
                 <img src={image} className="object-cover object-top md:h-80 md:w-auto" alt="Car"/>
             </div>
             <p className="mb-3 font-sans text-base text-justify">
-                {manufacture}/{type}
+                {manufacture} / {type}
             </p>
             <h3 className="mb-3 text-base font-bold font-sans">
                 RP {rentPerDay} / hari
@@ -37,7 +37,7 @@ export default function Car({ id, image, manufacture, type, rentPerDay, descript
                 </li>
             </ul>
             <div className="flex items-center justify-center mt-6">
-                <a href="" className="inline-flex items-center justify-center h-12 px-16 sm:px-28 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                <a href="/" className="inline-flex items-center justify-center h-12 px-16 sm:px-28 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
                     Pilih Mobil
                 </a>  
             </div>
