@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThumbsUp, Tag, Clock, Award } from 'feather-icons-react';
+import Card from './Card';
 
 export default function WhyUs(){
     const reasons = [
@@ -42,17 +43,13 @@ export default function WhyUs(){
                 </div>
                 <div className="grid gap-4 md:gap-6 lg:grid-cols-4 md:grid-cols-2">
                     {reasons.map((reason, index) => (
-                        <div key={index} className="px-4 py-4 border-2 rounded-lg lg:px-6 lg:py-6">
-                            <div className={`flex items-center justify-center w-10 h-10 mb-4 rounded-full ${reason.bgColor}`}>
-                                {reason.icon}
-                            </div>
-                            <h3 className="mb-3 text-lg sm:text-xl font-bold font-sans">
-                                {reason.title}
-                            </h3>
-                            <p className="font-sans text-base text-justify">
-                                {reason.description}
-                            </p>
-                        </div>
+                        <Card
+                            index={index}
+                            bgColor={reason.bgColor}
+                            icon={reason.icon}
+                            title={reason.title}
+                            description={reason.description}
+                        />
                     ))}
                 </div>
             </div>

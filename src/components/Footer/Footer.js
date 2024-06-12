@@ -29,9 +29,9 @@ export default function Footer(){
                 <div className="grid gap-12 grid-cols-1 md:grid-cols-4 row-gap-12 lg:grid-cols-7">
                     <div className="md:col-span-2 col-span-1">
                         {contactInfo.map((info, index) => (
-                        <p key={index} className="mb-2 lg:mb-4 text-base font-sans">
-                            {info}
-                        </p>
+                            <p key={index} className="mb-2 lg:mb-4 text-base font-sans">
+                                {info}
+                            </p>
                         ))}
                     </div>
                     <div>

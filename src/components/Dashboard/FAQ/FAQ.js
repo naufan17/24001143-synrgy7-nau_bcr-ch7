@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { ChevronDown } from 'feather-icons-react'
+import React from 'react';
+import Accordion from './Accordion';
 
 export default function FAQ(){
-    const [openIndexes, setOpenIndexes] = useState([]);
     const faqs = [
         {
             question: 'Apa saja yang dibutuhkan?',
@@ -26,14 +25,6 @@ export default function FAQ(){
         }
     ];
 
-    const toggleAccordion = (index) => {
-        if (openIndexes.includes(index)) {
-            setOpenIndexes(openIndexes.filter((i) => i !== index));
-        } else {
-            setOpenIndexes([...openIndexes, index]);
-        }
-    };
-
     return (
         <section id="FAQ">
             <div className="relative px-8 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-12 lg:py-16">
@@ -51,27 +42,11 @@ export default function FAQ(){
                     <div className="flex flex-col col-span-3 justify-center">
                         <div className="space-y-4">
                             {faqs.map((faq, index) => (
-                                <div key={index} className="border-2 rounded">
-                                    <button 
-                                        type="button" 
-                                        aria-label="Open item" 
-                                        title="Open item"
-                                        onClick={() => toggleAccordion(index)}
-                                        className="flex items-center justify-between w-full p-4"
-                                    >
-                                        <p className="font-sans text-base text-justify">
-                                            {faq.question}
-                                        </p>
-                                        <div className={`flex items-center justify-center transition-transform duration-200 ${openIndexes.includes(index) ? 'rotate-180' : ''}`}>
-                                            <ChevronDown/>
-                                        </div>
-                                    </button>
-                                    <div className={`p-4 pt-0 ${openIndexes.includes(index) ? '': 'hidden'}`}>
-                                        <p className="font-sans text-base text-justify">
-                                            {faq.answer}
-                                        </p>
-                                    </div>     
-                                </div>
+                                <Accordion
+                                    id={index}
+                                    question={faq.question}
+                                    answer={faq.answer}
+                                />
                             ))}
                         </div>
                     </div>
