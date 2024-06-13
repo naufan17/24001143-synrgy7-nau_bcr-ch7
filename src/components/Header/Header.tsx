@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Header() {
+const Header: React.FC = () => {
     return (
         <header className="bg-blue-50">
             <div className="relative px-8 py-12 mb-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-12 lg:py-16">
@@ -24,3 +24,5 @@ export default function Header() {
         </header>
     )
 }
+
+export default Header;

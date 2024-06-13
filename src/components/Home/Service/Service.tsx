@@ -1,8 +1,8 @@
 import React from 'react';
 import Option from './Option';
 
-export default function Service(){
-    const services = [
+const Service: React.FC = () => {
+    const services: string[] = [
         "Sewa Mobil Dengan Supir di Bali 12 Jam",
         "Sewa Mobil Lepas Kunci di Bali 24 Jam",
         "Sewa Mobil Jangka Panjang Bulanan",
@@ -41,3 +41,5 @@ export default function Service(){
         </section>
     )
 }
+
+export default Service;

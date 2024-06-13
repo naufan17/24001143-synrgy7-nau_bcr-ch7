@@ -1,6 +1,15 @@
 import React from 'react';
 
-export default function Card({ index, imgSrc, review, name, location, currentIndex }){
+interface TestimonialProps {
+    index: number;
+    imgSrc: string;
+    review: string;
+    name: string;
+    location: string;
+    currentIndex: number;
+}
+
+const Card: React.FC<TestimonialProps> = ({ index, imgSrc, review, name, location, currentIndex }) => {
     return (
         <div key={index} className={`testimonial-item p-8 w-auto h-80 sm:h-64 md:h-56 lg:h-64 sm:max-w-full md:w-3/4 lg:w-1/2 rounded-lg bg-blue-50 shadow-sm lg:p-12 justify-self-center ${index === currentIndex ? '' : 'hidden'}`}>
             <div className="flex flex-col sm:flex-row items-center justify-center">
@@ -26,3 +35,5 @@ export default function Card({ index, imgSrc, review, name, location, currentInd
         </div>
     )
 }
+
+export default Card;

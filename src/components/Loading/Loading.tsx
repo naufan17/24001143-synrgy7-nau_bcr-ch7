@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Loading() {
+const Loading: React.FC = () => {
     return (
         <div className="relative px-8 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-12 lg:py-16">
             <div className="flex items-center justify-center">
@@ -15,3 +15,5 @@ export default function Loading() {
         </div>
     );
 }
+
+export default Loading;

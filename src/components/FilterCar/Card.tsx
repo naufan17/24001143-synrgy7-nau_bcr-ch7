@@ -1,7 +1,19 @@
 import React from 'react';
-import { Users, Settings, Calendar } from 'feather-icons-react'
+import { Users, Settings, Calendar } from 'react-feather'
 
-export default function Card({ id, image, manufacture, type, rentPerDay, description, capacity, transmission, year }){
+interface CarProps {
+    id: string;
+    image: string;
+    manufacture: string;
+    type: string;
+    rentPerDay: number;
+    description: string;
+    capacity: number;
+    transmission: string;
+    year: number;
+}
+
+const Card: React.FC<CarProps> = ({ id, image, manufacture, type, rentPerDay, description, capacity, transmission, year }) => {
     return (
         <div key={id} className="px-4 py-4 border-2 rounded-lg lg:px-6 lg:py-6">
             <div className="flex items-center justify-center mb-6">
@@ -44,3 +56,5 @@ export default function Card({ id, image, manufacture, type, rentPerDay, descrip
         </div>
     )
 }
+
+export default Card;

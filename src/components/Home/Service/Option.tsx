@@ -1,7 +1,12 @@
 import React from 'react';
-import { Check } from 'feather-icons-react'
+import { Check } from 'react-feather'
 
-export default function Option({ index, service }) {
+interface ServiceProps {
+    index: number;
+    service: string;
+}
+
+const Option: React.FC<ServiceProps> = ({ index, service }) => {
     return (
         <li key={index} className="flex text-base font-sans">
             <span className="mr-4 bg-blue-200 rounded-full p-1">
@@ -11,3 +16,5 @@ export default function Option({ index, service }) {
         </li>
     )
 }
+
+export default Option

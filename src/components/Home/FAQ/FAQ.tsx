@@ -1,8 +1,8 @@
 import React from 'react';
 import Accordion from './Accordion';
 
-export default function FAQ(){
-    const faqs = [
+const FAQ: React.FC = () => {
+    const faqs: { question: string; answer: string}[] = [
         {
             question: 'Apa saja yang dibutuhkan?',
             answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae'
@@ -43,7 +43,7 @@ export default function FAQ(){
                         <div className="space-y-4">
                             {faqs.map((faq, index) => (
                                 <Accordion
-                                    id={index}
+                                    index={index}
                                     question={faq.question}
                                     answer={faq.answer}
                                 />
@@ -55,3 +55,5 @@ export default function FAQ(){
         </section>
     )
 }
+
+export default FAQ;

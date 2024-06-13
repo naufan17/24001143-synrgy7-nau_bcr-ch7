@@ -1,9 +1,9 @@
 import React from 'react';
-import { ThumbsUp, Tag, Clock, Award } from 'feather-icons-react';
+import { ThumbsUp, Tag, Clock, Award } from 'react-feather';
 import Card from './Card';
 
-export default function WhyUs(){
-    const reasons = [
+const WhyUs: React.FC = () => {
+    const reasons: { icon: JSX.Element; bgColor:string; title:string; description:string }[] = [
         {
             icon: <ThumbsUp color="white" />,
             bgColor: 'bg-yellow-400',
@@ -56,3 +56,5 @@ export default function WhyUs(){
         </section>
     )
 }
+
+export default WhyUs;

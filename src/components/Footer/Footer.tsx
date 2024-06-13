@@ -1,21 +1,21 @@
 import React from 'react';
-import { Facebook, Instagram, Twitter, Mail, Twitch } from 'feather-icons-react';
+import { Facebook, Instagram, Twitter, Mail, Twitch } from 'react-feather';
 
-export default function Footer(){
-    const contactInfo = [
+const Footer:React.FC = () => {
+    const contactInfo: string[] = [
         "Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000",
         "binarcarrental@gmail.com",
         "081-233-334-808"
     ];
     
-    const footerLinks = [
+    const footerLinks: {href: string; text: string}[] = [
         { href: "#OurServices", text: "Our Services" },
         { href: "#WhyUs", text: "Why Us" },
         { href: "#Testimonial", text: "Testimonial" },
         { href: "#FAQ", text: "FAQ" }
     ];
     
-    const socialMedia = [
+    const socialMedia: JSX.Element[] = [
         <Facebook color="white" className="mt-1 ml-1" />,
         <Instagram color="white" className="mt-1 ml-1" />,
         <Twitter color="white" className="mt-1 ml-1" />,
@@ -68,3 +68,5 @@ export default function Footer(){
         </footer>
     )
 }
+
+export default Footer;

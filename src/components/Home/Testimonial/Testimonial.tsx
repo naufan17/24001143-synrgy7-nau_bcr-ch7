@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { ChevronRight, ChevronLeft } from 'feather-icons-react'
+import { ChevronRight, ChevronLeft } from 'react-feather'
 import Card from './Card'
 
-export default function Testimonial(){
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const testimonials = [
+const Testimonial: React.FC = () => {
+    const [currentIndex, setCurrentIndex] = useState<number>(0)
+    const testimonials: { imgSrc: string; review: string; name: string; location:string }[] = [
         {
             imgSrc: "images/img_photo.png",
             review: "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”",
@@ -68,3 +68,5 @@ export default function Testimonial(){
         </section>
     )
 }
+
+export default Testimonial;

@@ -3,14 +3,32 @@ import axios from 'axios';
 import Card from './Card'
 import Loading from '../Loading/Loading';
 
-export default function Car(){
-    const [cars, setCars] = useState([]);
-    const [driverType, setDriverType] = useState('');
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
-    const [capacity, setCapacity] = useState('');
-    const [errors, setErrors] = useState({});
-    const [loading, setLoading] = useState(true);
+interface Car {
+    id: string;
+    plate: string;
+    manufacture: string;
+    model: string;
+    image: string;
+    rentPerDay: number;
+    capacity: number;
+    description: string;
+    availableAt: string;
+    transmission: string;
+    available: boolean;
+    type: string;
+    year: number;
+    options: string[];
+    specs: string[];
+}
+
+const FilterCar: React.FC = () => {
+    const [cars, setCars] = useState<Car[]>([]);
+    const [driverType, setDriverType] = useState<string>('');
+    const [date, setDate] = useState<string>('');
+    const [time, setTime] = useState<string>('');
+    const [capacity, setCapacity] = useState<string>('');
+    const [errors, setErrors] = useState<{[key: string]: string}>({});
+    const [loading, setLoading] = useState<boolean>(true);
 
     const getCars = async () => {
         try {
@@ -23,11 +41,21 @@ export default function Car(){
     }
 
     const validateFields = () => {
-        const newErrors = {};
+        const newErrors: {[key: string]: string} = {};
         if (!date) newErrors.date = "Date is required";
         if (!time) newErrors.time = "Time is required";
         if (!capacity) newErrors.capacity = "Capacity is required";
         return newErrors;
+    }
+
+    const filterCars = () => {
+        const dateTime = new Date(`${date}T${time}Z`);
+        const filtered = cars.filter(car => 
+            car.available && 
+            car.availableAt <= dateTime.toISOString() &&
+            car.capacity >= parseInt(capacity)
+        );
+        setCars(filtered);
     }
 
     const handleFilter = () => {
@@ -37,14 +65,7 @@ export default function Car(){
             return;
         }
         setErrors({});
-
-        const dateTime = new Date(`${date}T${time}Z`);
-        const filtered = cars.filter(car => 
-            car.available && 
-            car.availableAt <= dateTime.toISOString() &&
-            car.capacity >= parseInt(capacity)
-        );
-        setCars(filtered);
+        filterCars();
     }
 
     useEffect(() => {
@@ -126,23 +147,31 @@ export default function Car(){
                 <Loading/>
             ) : (
                 <div className="relative px-8 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-12 lg:py-6">
-                    <div className="grid gap-4 md:gap-6 lg:grid-cols-3 md:grid-cols-2">
-                        {cars.map(car =>
-                            <Card
-                                id = {car.id}
-                                image = {car.image}
-                                manufacture = {car.manufacture}
-                                type = {car.type} 
-                                rentPerDay = {car.rentPerDay}
-                                description = {car.description}
-                                capacity = {car.capacity}
-                                transmission = {car.transmission}
-                                year = {car.year}
-                            />
-                        )}
-                    </div>
+                    {cars.length === 0 ? (
+                        <div className="flex items-center justify-center">
+                            <p className="text-base font-sans">Cars not found</p>
+                        </div>
+                    ) : (
+                        <div className="grid gap-4 md:gap-6 lg:grid-cols-3 md:grid-cols-2">
+                            {cars.map(car =>
+                                <Card
+                                    id = {car.id}
+                                    image = {car.image}
+                                    manufacture = {car.manufacture}
+                                    type = {car.type} 
+                                    rentPerDay = {car.rentPerDay}
+                                    description = {car.description}
+                                    capacity = {car.capacity}
+                                    transmission = {car.transmission}
+                                    year = {car.year}
+                                />
+                            )}
+                        </div>
+                    )}
                 </div>
             )}
         </section>
     )
 }
+
+export default FilterCar;

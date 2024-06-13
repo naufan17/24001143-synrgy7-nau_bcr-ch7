@@ -1,10 +1,12 @@
-import { React } from 'react';
+import React from 'react';
 import Main from '../components/NotFound/NotFound';
 
-export default function NotFound() {      
+const NotFound: React.FC = () => {      
     return (
         <>
             <Main/>
         </>
     );
 }
+
+export default NotFound;

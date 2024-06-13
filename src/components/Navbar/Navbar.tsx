@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'feather-icons-react';
+import { Menu, X } from 'react-feather';
 import { Link } from 'react-scroll';
 
-export default function Navbar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navLinks = [
+const Navbar: React.FC = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const navLinks: {to:string; text:string}[] = [
         { to: "OurServices", text: "Our Services" },
         { to: "WhyUs", text: "Why Us" },
         { to: "Testimonial", text: "Testimonial" },
@@ -84,3 +84,5 @@ export default function Navbar() {
         </nav>
     )
 }
+
+export default Navbar;

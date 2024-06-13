@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'feather-icons-react'
+import { ChevronDown } from 'react-feather'
 
-export default function Accordion({ index, question, answer }){
-    const [openIndexes, setOpenIndexes] = useState([]);
+interface FAQProps {
+    index: number;
+    question: string;
+    answer: string;
+}
 
-    const toggleAccordion = (index) => {
+const Accordion: React.FC<FAQProps> = ({ index, question, answer }) => {
+    const [openIndexes, setOpenIndexes] = useState<number[]>([]);
+
+    const toggleAccordion = (index: number) => {
         if (openIndexes.includes(index)) {
             setOpenIndexes(openIndexes.filter((i) => i !== index));
         } else {
@@ -36,3 +42,5 @@ export default function Accordion({ index, question, answer }){
         </div>
     )
 }
+
+export default Accordion;
