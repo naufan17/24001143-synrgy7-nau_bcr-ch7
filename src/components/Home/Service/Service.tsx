@@ -1,5 +1,5 @@
 import React from 'react';
-import Option from './Option';
+import { Check } from 'react-feather'
 
 const Service: React.FC = () => {
     const services: string[] = [
@@ -29,10 +29,12 @@ const Service: React.FC = () => {
                         </div>
                         <ul className="space-y-5">
                             {services.map((service, index) => (
-                                <Option
-                                    index={index}
-                                    service={service}  
-                                />
+                                <li key={index} className="flex text-base font-sans">
+                                    <span className="mr-4 bg-blue-200 rounded-full p-1">
+                                        <Check color="blue"/>
+                                    </span>
+                                    {service}
+                                </li>
                             ))}
                         </ul>
                     </div>

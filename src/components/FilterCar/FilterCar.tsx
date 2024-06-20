@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../config/Api';
-import Card from './Card';
-import Loading from '../Loading/Loading';
+import ListCar from './ListCar';
 
 interface Car {
     id: string;
@@ -141,34 +140,11 @@ const FilterCar: React.FC = () => {
                         </div>
                     </div>
                 </div>
+                <ListCar 
+                    cars={cars}
+                    loading={loading}
+                />
             </div>
-            {loading ? (
-                <Loading/>
-            ) : (
-                <div className="relative px-8 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-12 lg:py-6">
-                    {cars.length === 0 ? (
-                        <div className="flex items-center justify-center">
-                            <p className="text-base font-sans">Cars not found</p>
-                        </div>
-                    ) : (
-                        <div className="grid gap-4 md:gap-6 lg:grid-cols-3 md:grid-cols-2">
-                            {cars.map(car =>
-                                <Card
-                                    id = {car.id}
-                                    image = {car.image}
-                                    manufacture = {car.manufacture}
-                                    type = {car.type} 
-                                    description = {car.description}
-                                    capacity = {car.capacity}
-                                    transmission = {car.transmission}
-                                    year = {car.year}
-                                    rent_price = {car.rent_price}
-                                />
-                            )}
-                        </div>
-                    )}
-                </div>
-            )}
         </section>
     )
 }

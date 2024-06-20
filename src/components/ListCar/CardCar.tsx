@@ -23,7 +23,7 @@ interface Car {
 
 const CardCar: React.FC = () => {
     const [cars, setCars] = useState<Car[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
 
     const getCars = async () => {
         try {

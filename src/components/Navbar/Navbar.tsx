@@ -15,6 +15,44 @@ const Navbar: React.FC = () => {
         setIsMenuOpen(!isMenuOpen);
     }
 
+    if (isMenuOpen) {
+        return (
+            <div className="fixed inset-0 bg-gray-700 bg-opacity-50 z-50">
+                <div className="flex justify-end h-full">
+                    <div className="bg-white w-64 p-6">
+                        <div className="flex py-4 item-center justify-between">
+                            <p className="font-bold font-sans text-lg">
+                                BCR
+                            </p>
+                            <button onClick={toggleMenu} aria-label="Close Menu" title="Close Menu">
+                                <X/>
+                            </button>
+                        </div>
+                        <ul className="space-y-4">
+                            {navLinks.map((link, index) => (
+                                <li key={index}>
+                                    <Link
+                                        to={link.to}
+                                        smooth={true}
+                                        duration={500}
+                                        className='cursor-pointer font-medium font-sans hover:text-gray-700'
+                                    >
+                                        {link.text}
+                                    </Link>
+                                </li>
+                            ))}
+                            <li>
+                                <a href="/login" className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                                    Login
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <nav className="bg-blue-50">
             <div className="relative px-8 py-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-12 lg:py-8">
@@ -46,41 +84,6 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
             </div>
-            {isMenuOpen && (
-                <div className="fixed inset-0 bg-gray-700 bg-opacity-50 z-50">
-                    <div className="flex justify-end h-full">
-                        <div className="bg-white w-64 p-6">
-                            <div className="flex py-4 item-center justify-between">
-                                <p className="font-bold font-sans text-lg">
-                                    BCR
-                                </p>
-                                <button onClick={toggleMenu} aria-label="Close Menu" title="Close Menu">
-                                    <X/>
-                                </button>
-                            </div>
-                            <ul className="space-y-4">
-                                {navLinks.map((link, index) => (
-                                    <li key={index}>
-                                        <Link
-                                            to={link.to}
-                                            smooth={true}
-                                            duration={500}
-                                            className='cursor-pointer font-medium font-sans hover:text-gray-700'
-                                        >
-                                            {link.text}
-                                        </Link>
-                                    </li>
-                                ))}
-                                <li>
-                                    <a href="/login" className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
-                                        Login
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            )}
         </nav>
     )
 }

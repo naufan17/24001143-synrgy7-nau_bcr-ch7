@@ -32,7 +32,7 @@ interface Order {
 
 const TableOrder: React.FC = () => {
     const [orders, setOrders] = useState<Order[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
 
     const getOrders = async () => {
         try {
