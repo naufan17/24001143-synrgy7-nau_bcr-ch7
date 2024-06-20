@@ -84,7 +84,7 @@ const FilterCar: React.FC = () => {
                                 name="driver" 
                                 value={driverType}
                                 onChange={(e) => setDriverType(e.target.value)}
-                                className="flex-grow w-full h-10 px-4 bg-white font-sans border border-gray-300 rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500"
+                                className="flex-grow w-full h-10 px-4 font-sans text-sm sm:text-base border-2 rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500"
                             >
                                 <option value="" disabled selected hidden>Pilih Driver</option>
                                 <option value="true" className="hover:bg-green-300 hover:text-green-600">Dengan Sopir</option>
@@ -100,7 +100,7 @@ const FilterCar: React.FC = () => {
                                 value={date}
                                 onChange={(e) => setDate(e.target.value)}
                                 placeholder="Pilih Tanggal"
-                                className={`flex-grow w-full h-10 px-4 bg-white font-sans border ${errors.date ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
+                                className={`flex-grow w-full h-10 px-4 bg-white font-sans text-sm sm:text-base border-2 ${errors.date ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
                             />
                             {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
                         </div>    
@@ -113,7 +113,7 @@ const FilterCar: React.FC = () => {
                                 value={time}
                                 onChange={(e) => setTime(e.target.value)}
                                 placeholder="Pilih Waktu"
-                                className={`flex-grow w-full h-10 px-4 bg-white font-sans border ${errors.time ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
+                                className={`flex-grow w-full h-10 px-4 bg-white font-sans text-sm sm:text-base border-2 ${errors.time ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
                             />
                             {errors.time && <p className="text-red-500 text-sm">{errors.time}</p>}
                         </div>    
@@ -126,7 +126,7 @@ const FilterCar: React.FC = () => {
                                 value={capacity}
                                 onChange={(e) => setCapacity(e.target.value)}
                                 placeholder="Jumlah Penumpang"
-                                className={`flex-grow w-full h-10 px-4 p-2 bg-white font-sans border ${errors.capacity ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
+                                className={`flex-grow w-full h-10 px-4 p-2 bg-white font-sans text-sm sm:text-base border-2 ${errors.capacity ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
                             />
                             {errors.capacity && <p className="text-red-500 text-sm">{errors.capacity}</p>}
                         </div>

@@ -34,8 +34,8 @@ const Navbar: React.FC = () => {
                             </li>                        
                         ))}
                         <li>
-                            <a href="/" className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
-                                Register
+                            <a href="/login" className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                                Login
                             </a>
                         </li>
                     </ul>
@@ -72,8 +72,8 @@ const Navbar: React.FC = () => {
                                     </li>
                                 ))}
                                 <li>
-                                    <a href="/" className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
-                                        Register
+                                    <a href="/login" className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                                        Login
                                     </a>
                                 </li>
                             </ul>
