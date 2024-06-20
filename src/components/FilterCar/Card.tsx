@@ -19,29 +19,29 @@ const Card: React.FC<CarProps> = ({ id, image, manufacture, type, rentPerDay, de
             <div className="flex items-center justify-center mb-6">
                 <img src={image} className="object-cover object-top md:h-80 md:w-auto" alt="Car"/>
             </div>
-            <p className="mb-3 font-sans text-base text-justify">
+            <p className="mb-3 font-sans text-sm sm:text-base text-justify">
                 {manufacture} / {type}
             </p>
-            <h3 className="mb-3 text-base font-bold font-sans">
+            <h3 className="mb-3 text-sm sm:text-base font-bold font-sans">
                 RP {rentPerDay} / hari
             </h3>
-            <p className="mb-3 font-sans text-base text-justify">
+            <p className="mb-3 font-sans text-sm sm:text-base text-justify">
                 {description}
             </p>
             <ul className="space-y-3">
-                <li className="flex text-base font-sans">
+                <li className="flex text-sm sm:text-base font-sans">
                     <span className="mr-4">
                         <Users size="20"/>
                     </span>
                     {capacity} orang
                 </li>
-                <li className="flex text-base font-sans">
+                <li className="flex text-sm sm:text-base font-sans">
                     <span className="mr-4">
                         <Settings size="20"/>
                     </span> 
                     {transmission}
                 </li>
-                <li className="flex text-base font-sans">
+                <li className="flex text-sm sm:text-base font-sans">
                     <span className="mr-4">
                         <Calendar size="20"/>
                     </span>
@@ -49,7 +49,7 @@ const Card: React.FC<CarProps> = ({ id, image, manufacture, type, rentPerDay, de
                 </li>
             </ul>
             <div className="flex items-center justify-center mt-6">
-                <a href="/" className="inline-flex items-center justify-center h-12 px-16 sm:px-28 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                <a href="/" className="inline-flex items-center justify-center h-10 px-14 sm:px-20 lg:px-24 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
                     Pilih Mobil
                 </a>  
             </div>

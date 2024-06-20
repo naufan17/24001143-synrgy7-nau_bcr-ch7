@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Card from './Card'
+import axios from '../../config/Api';
+import Card from './Card';
 import Loading from '../Loading/Loading';
 
 interface Car {
@@ -32,8 +32,8 @@ const FilterCar: React.FC = () => {
 
     const getCars = async () => {
         try {
-            const result = await axios.get('https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/data/cars.min.json');
-            setCars(result.data)
+            const result = await axios.get('car');
+            setCars(result.data.data.cars)
             setLoading(false);
         } catch (err) {
             console.error(err)
@@ -78,13 +78,13 @@ const FilterCar: React.FC = () => {
                 <div className="flex rounded-lg shadow-lg">
                     <div className="grid grid-cols-4 md:grid-cols-9">
                         <div className="inline-block col-span-2 p-5 md:p-6">
-                            <label htmlFor="driver" className="inline-block font-sans mb-3">Tipe Driver</label>
+                            <label htmlFor="driver" className="inline-block font-sans text-sm sm:text-base mb-3">Tipe Driver</label>
                             <select 
                                 id="driver"
                                 name="driver" 
                                 value={driverType}
                                 onChange={(e) => setDriverType(e.target.value)}
-                                className="flex-grow w-full h-10 px-4 font-sans text-sm sm:text-base border-2 rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500"
+                                className="flex-grow w-full h-10 px-4 font-sans text-sm sm:text-base border rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500"
                             >
                                 <option value="" disabled selected hidden>Pilih Driver</option>
                                 <option value="true" className="hover:bg-green-300 hover:text-green-600">Dengan Sopir</option>
@@ -92,7 +92,7 @@ const FilterCar: React.FC = () => {
                             </select>
                         </div>    
                         <div className="inline-block col-span-2 p-5 md:p-6">
-                            <label htmlFor="date" className="inline-block font-sans mb-3">Tanggal</label>
+                            <label htmlFor="date" className="inline-block font-sans text-sm sm:text-base mb-3">Tanggal</label>
                             <input
                                 type="date"
                                 id="date"
@@ -100,12 +100,12 @@ const FilterCar: React.FC = () => {
                                 value={date}
                                 onChange={(e) => setDate(e.target.value)}
                                 placeholder="Pilih Tanggal"
-                                className={`flex-grow w-full h-10 px-4 bg-white font-sans text-sm sm:text-base border-2 ${errors.date ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
+                                className={`flex-grow w-full h-10 px-4 font-sans text-sm sm:text-base border ${errors.date ? 'border-red-500' : ''} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
                             />
                             {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
                         </div>    
                         <div className="inline-block col-span-2 p-5 md:p-6">
-                            <label htmlFor="time" className="inline-block font-sans mb-3">Waktu Jemput/Ambil</label>
+                            <label htmlFor="time" className="inline-block font-sans text-sm sm:text-base mb-3">Waktu Jemput/Ambil</label>
                             <input
                                 type="time"
                                 id="time"
@@ -113,12 +113,12 @@ const FilterCar: React.FC = () => {
                                 value={time}
                                 onChange={(e) => setTime(e.target.value)}
                                 placeholder="Pilih Waktu"
-                                className={`flex-grow w-full h-10 px-4 bg-white font-sans text-sm sm:text-base border-2 ${errors.time ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
+                                className={`flex-grow w-full h-10 px-4 font-sans text-sm sm:text-base border ${errors.time ? 'border-red-500' : ''} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
                             />
                             {errors.time && <p className="text-red-500 text-sm">{errors.time}</p>}
                         </div>    
                         <div className="inline-block col-span-2 p-5 md:p-6">
-                            <label htmlFor="capacity" className="inline-block font-sans mb-3">Jumlah Penumpang</label>
+                            <label htmlFor="capacity" className="inline-block font-sans text-sm sm:text-base mb-3">Jumlah Penumpang</label>
                             <input
                                 type="number"
                                 id="capacity"
@@ -126,7 +126,7 @@ const FilterCar: React.FC = () => {
                                 value={capacity}
                                 onChange={(e) => setCapacity(e.target.value)}
                                 placeholder="Jumlah Penumpang"
-                                className={`flex-grow w-full h-10 px-4 p-2 bg-white font-sans text-sm sm:text-base border-2 ${errors.capacity ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
+                                className={`flex-grow w-full h-10 px-4 p-2 font-sans text-sm sm:text-base border ${errors.capacity ? 'border-red-500' : ''} rounded focus:outline-none focus:border-green-500 focus:ring-1 ring-green-500`}
                             />
                             {errors.capacity && <p className="text-red-500 text-sm">{errors.capacity}</p>}
                         </div>

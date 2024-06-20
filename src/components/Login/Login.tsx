@@ -1,20 +1,20 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../config/Api';
 
 const Login: React.FC = () => {
-    const [email, setEmail] = useState<string>('');
+    const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [alert, setAlert] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const loginUser = async () => {
-        try{
-            const result = await axios.post('/api/login', { email, password });
-            sessionStorage.setItem('token', result.data.access_token);
+        try {
+            const result = await axios.post('admin/login', { username, password });
+            sessionStorage.setItem('token', result.data.data.token);
             navigate('/dashboard');
-        }catch(e){
+        } catch(e) {
             console.log(e);
             setLoading(false);
             setAlert(true);
@@ -31,8 +31,8 @@ const Login: React.FC = () => {
         loginUser();
     }
 
-    const handleEmailChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
+    const handleUsernameChange = async (e: ChangeEvent<HTMLInputElement>) => {
+        setUsername(e.target.value);
     }
 
     const handlePasswordChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -55,8 +55,8 @@ const Login: React.FC = () => {
                         Welcome, Admin BCR
                     </h2>
                     { alert && 
-                        <div className="bg-red-100 border-2 border-red-400  px-4 py-3 rounded-lg relative mb-4" role="alert">
-                            <span className="block sm:inline text-red-800 font-medium">Email & Password not valid</span>
+                        <div className="relative bg-red-100 border-2 border-red-400 px-4 py-3 rounded-lg mb-4" role="alert">
+                            <span className="block sm:inline text-red-800 text-sm md:text-base font-medium">Username & Password not valid</span>
                             <span className="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={handleCloseAlert} role="button">
                                 <svg className="fill-current h-6 w-6 text-red-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/>
@@ -66,15 +66,15 @@ const Login: React.FC = () => {
                     }
                     <form onSubmit={handleSubmit}>
                         <div className="mb-2">
-                            <label htmlFor="email" className="inline-block mb-1 text-sm md:text-base text-gray-800">
-                                E-mail
+                            <label htmlFor="username" className="inline-block mb-1 text-sm md:text-base text-gray-800">
+                                Username
                             </label>
                             <input 
                                 type="text" 
-                                id="email" 
-                                name="email" 
-                                value={email} 
-                                onChange={handleEmailChange} 
+                                id="username" 
+                                name="username" 
+                                value={username} 
+                                onChange={handleUsernameChange} 
                                 className="flex-grow w-full h-10 md:h-12 px-4 mb-2 text-sm sm:text-base border-2 rounded-lg focus:outline-none focus:border-slate-300" 
                                 required
                             />
