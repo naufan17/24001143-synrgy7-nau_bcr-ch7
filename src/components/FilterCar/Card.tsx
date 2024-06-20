@@ -6,14 +6,14 @@ interface CarProps {
     image: string;
     manufacture: string;
     type: string;
-    rentPerDay: number;
     description: string;
     capacity: number;
     transmission: string;
     year: number;
+    rent_price: number;
 }
 
-const Card: React.FC<CarProps> = ({ id, image, manufacture, type, rentPerDay, description, capacity, transmission, year }) => {
+const Card: React.FC<CarProps> = ({ id, image, manufacture, type, description, capacity, transmission, year, rent_price }) => {
     return (
         <div key={id} className="px-4 py-4 border-2 rounded-lg lg:px-6 lg:py-6">
             <div className="flex items-center justify-center mb-6">
@@ -23,7 +23,7 @@ const Card: React.FC<CarProps> = ({ id, image, manufacture, type, rentPerDay, de
                 {manufacture} / {type}
             </p>
             <h3 className="mb-3 text-sm sm:text-base font-bold font-sans">
-                RP {rentPerDay} / hari
+                RP {rent_price} / hari
             </h3>
             <p className="mb-3 font-sans text-sm sm:text-base text-justify">
                 {description}
@@ -49,7 +49,7 @@ const Card: React.FC<CarProps> = ({ id, image, manufacture, type, rentPerDay, de
                 </li>
             </ul>
             <div className="flex items-center justify-center mt-6">
-                <a href="/" className="inline-flex items-center justify-center h-10 px-14 sm:px-20 lg:px-24 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                <a href="/" className="inline-flex items-center justify-center h-10 w-full font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
                     Pilih Mobil
                 </a>  
             </div>

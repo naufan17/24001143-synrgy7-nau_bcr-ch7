@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import FilterCar from "../pages/FilterCar";
 import Dashboard from "../pages/Dashboard";
+import ListCar from "../pages/ListCar";
 import NotFound from '../pages/NotFound';
 
 const AppRoute: React.FC = () => {
@@ -13,6 +14,7 @@ const AppRoute: React.FC = () => {
             <Route path = "/login" element = {<Login/>}/>
             <Route path = "/cars" element = {<FilterCar/>}/>
             <Route path = "/dashboard" element = {<Dashboard/>}/>
+            <Route path = "/list-cars" element = {<ListCar/>}/>
             <Route path = "*" element = {<NotFound/>}/>
         </Routes>
     );

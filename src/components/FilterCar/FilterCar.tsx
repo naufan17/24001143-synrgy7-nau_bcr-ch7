@@ -9,14 +9,13 @@ interface Car {
     manufacture: string;
     model: string;
     image: string;
-    rentPerDay: number;
     capacity: number;
     description: string;
-    availableAt: string;
     transmission: string;
-    available: boolean;
     type: string;
     year: number;
+    available: boolean;
+    rent_price: number;
     options: string[];
     specs: string[];
 }
@@ -49,11 +48,11 @@ const FilterCar: React.FC = () => {
     }
 
     const filterCars = () => {
-        const dateTime = new Date(`${date}T${time}Z`);
+        // const dateTime = new Date(`${date}T${time}Z`);
         const filtered = cars.filter(car => 
             car.available && 
-            car.availableAt <= dateTime.toISOString() &&
             car.capacity >= parseInt(capacity)
+            // car.availableAt <= dateTime.toISOString() &&
         );
         setCars(filtered);
     }
@@ -159,11 +158,11 @@ const FilterCar: React.FC = () => {
                                     image = {car.image}
                                     manufacture = {car.manufacture}
                                     type = {car.type} 
-                                    rentPerDay = {car.rentPerDay}
                                     description = {car.description}
                                     capacity = {car.capacity}
                                     transmission = {car.transmission}
                                     year = {car.year}
+                                    rent_price = {car.rent_price}
                                 />
                             )}
                         </div>
