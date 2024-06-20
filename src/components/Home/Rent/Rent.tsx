@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Rent: React.FC = () => {
     return (
@@ -13,9 +14,12 @@ const Rent: React.FC = () => {
                             <p className="mb-10 text-base text-white font-sans">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                             </p>
-                            <a href="/cars" className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                            <Link
+                                to={'/cars'}
+                                className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600"        
+                            >
                                 Mulai Sewa Mobil
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

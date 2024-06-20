@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
     return (
@@ -13,9 +14,12 @@ const Header: React.FC = () => {
                         Kami menyediakan mobil berkualitas terbaik dengan jarga terjagkau. 
                         Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
                     </p>
-                    <a href="/cars" className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                    <Link
+                        to={'/cars'}
+                        className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600"        
+                    >
                         Mulai Sewa Mobil
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex justify-center lg:absolute bottom-0 right-0">
                     <img src="./images/img_car.png" className="object-cover object-top w-full max-w-xl lg:h-auto lg:max-w-screen-sm" alt="Car"/>

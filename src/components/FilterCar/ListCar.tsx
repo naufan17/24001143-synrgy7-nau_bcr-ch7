@@ -1,5 +1,6 @@
 import React from 'react';
-import { Users, Settings, Calendar } from 'react-feather'
+import { Users, Settings, Calendar } from 'react-feather';
+import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 
 interface Car {
@@ -71,9 +72,12 @@ const ListCar: React.FC<CarProps> = ({ cars, loading }) => {
                         </li>
                     </ul>
                     <div className="flex items-center justify-center mt-6">
-                        <a href="/" className="inline-flex items-center justify-center h-10 w-full font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                        <Link
+                            to={'/cars'}
+                            className="inline-flex items-center justify-center h-10 w-full font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600"
+                        >
                             Pilih Mobil
-                        </a>  
+                        </Link>
                     </div>
                 </div>
             )}
