@@ -35,6 +35,7 @@ const CardCar: React.FC = () => {
             });
             setCars(result.data.data.cars)
             setLoading(false);
+            console.log(result.data.data.cars)
         } catch (err) {
             console.error(err)
         }

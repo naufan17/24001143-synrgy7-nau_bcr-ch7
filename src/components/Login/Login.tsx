@@ -66,7 +66,7 @@ const Login: React.FC = () => {
                     }
                     <form onSubmit={handleSubmit}>
                         <div className="mb-2">
-                            <label htmlFor="username" className="inline-block mb-1 text-sm md:text-base text-gray-800">
+                            <label htmlFor="username" className="inline-block mb-2 text-sm md:text-base font-medium text-gray-800">
                                 Username
                             </label>
                             <input 
@@ -80,7 +80,7 @@ const Login: React.FC = () => {
                             />
                         </div>
                         <div className="mb-2">
-                            <label htmlFor="password" className="inline-block mb-1 text-sm md:text-base text-gray-800">
+                            <label htmlFor="password" className="inline-block mb-2 text-sm md:text-base font-medium text-gray-800">
                                 Password
                             </label>
                             <input 
