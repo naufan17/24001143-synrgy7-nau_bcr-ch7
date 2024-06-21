@@ -1,15 +1,19 @@
 import React from 'react';
+import NavProfile from '../components/NavProfile/NavProfile';
 import Sidebar from '../components/Sidebar/Sidebar';
 import Main from '../components/Dashboard/Dashboard';
 import TableOrder from '../components/Dashboard/TableOrder';
 
 const Dashboard: React.FC = () => {      
     return (
-        <div className="relative px-4 py-4 ml-16 sm:ml-20 mx-auto lg:px-8 lg:py-8"> 
+        <>
+            <NavProfile/>
             <Sidebar/>
-            <Main/>
-            <TableOrder/>
-        </div>
+            <div className="relative px-4 py-4 ml-16 sm:ml-20 mx-auto md:px-8 md:py-8">
+                <Main/>
+                <TableOrder/>
+            </div>
+        </>
     );
 }
 
