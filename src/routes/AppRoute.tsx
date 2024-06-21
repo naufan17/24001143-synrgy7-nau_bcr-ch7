@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import Logout from "../pages/Logout";
 import FilterCar from "../pages/FilterCar";
 import Dashboard from "../pages/Dashboard";
 import ListCar from "../pages/ListCar";
@@ -13,6 +14,7 @@ const AppRoute: React.FC = () => {
         <Routes>
             <Route path = "/" element = {<Home/>}/>
             <Route path = "/login" element = {<Login/>}/>
+            <Route path = "/logout" element = {<Logout/>}/>
             <Route path = "/cars" element = {<FilterCar/>}/>
             <Route path = "/dashboard" element = {<Dashboard/>}/>
             <Route path = "/list-cars" element = {<ListCar/>}/>

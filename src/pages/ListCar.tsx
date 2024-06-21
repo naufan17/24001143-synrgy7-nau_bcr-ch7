@@ -9,7 +9,7 @@ const ListCar: React.FC = () => {
         <>
             <NavProfile/>
             <Sidebar/>
-            <div className="relative px-4 py-4 ml-16 sm:ml-20 mx-auto md:px-8 md:py-8"> 
+            <div className="px-4 py-4 ml-16 sm:ml-20 mx-auto md:px-8 md:py-8"> 
                 <Main/>
                 <CardCar/>
             </div>

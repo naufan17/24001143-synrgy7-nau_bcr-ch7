@@ -9,7 +9,7 @@ const NewCar: React.FC = () => {
         <>
             <NavProfile/>
             <Sidebar/>
-            <div className="relative px-4 py-4 ml-16 sm:ml-20 mx-auto lg:px-8 lg:py-8"> 
+            <div className="px-4 py-4 ml-16 sm:ml-20 mx-auto lg:px-8 lg:py-8"> 
                 <Main/>
                 <FormCar/>
             </div>
