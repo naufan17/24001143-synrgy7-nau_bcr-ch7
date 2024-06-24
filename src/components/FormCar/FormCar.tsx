@@ -19,24 +19,24 @@ const FormCar: React.FC = () => {
 
     const createCar = async () => {
         try {
-            // const token = sessionStorage.getItem('token');
-            // await axios.post('car', {
-            //     plate,
-            //     manufacture,
-            //     model,
-            //     image: imageUrl,
-            //     capacity,
-            //     transmission,
-            //     type,
-            //     year,
-            //     rent_price: rentPrice,
-            //     description
-            // }, {
-            //     headers: {
-            //         Authorization: `Bearer ${token}`
-            //     }
-            // });
-            // navigate('/list-cars')
+            const token = sessionStorage.getItem('token');
+            await axios.post('car', {
+                plate,
+                manufacture,
+                model,
+                image: imageUrl,
+                capacity,
+                transmission,
+                type,
+                year,
+                rent_price: rentPrice,
+                description
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            navigate('/list-cars')
         } catch(e) {
             console.log(e);
         }

@@ -48,7 +48,7 @@ const Login: React.FC = () => {
                         className="object-cover h-full"
                     />
                 </div>
-                <div className="flex flex-col px-8 py-24 lg:px-12 lg:py-32">
+                <div className="flex flex-col px-8 lg:px-12 justify-center">
                     <div className="w-24 h-8 bg-blue-800"></div>
                     <h2 className="my-10 font-sans text-2xl font-bold tracking-tight text-gray-900 md:text-3xl sm:leading-none">
                         Welcome, Admin BCR

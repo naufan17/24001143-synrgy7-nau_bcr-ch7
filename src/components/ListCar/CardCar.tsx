@@ -2,23 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../config/Api';
 import Loading from '../Loading/Loading';
-import { Users, Settings, Calendar, Trash, Edit, DollarSign } from 'react-feather';
+import { Users, Settings, Calendar, Trash, Edit, DollarSign, X } from 'react-feather';
+
+interface Deleted {
+    deleted_at?: string;
+}
 
 interface Car {
     id: string;
-    plate: string;
     manufacture: string;
     model: string;
     image: string;
     capacity: number;
-    description: string;
     transmission: string;
     type: string;
     year: number;
-    available: boolean;
     rent_price: number;
-    options: string[];
-    specs: string[];
+    delete: Deleted;
 }
 
 const CardCar: React.FC = () => {
@@ -28,7 +28,7 @@ const CardCar: React.FC = () => {
     const getCars = async () => {
         try {
             const token = sessionStorage.getItem('token');
-            const result = await axios.get('car', {
+            const result = await axios.get('/car', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -45,15 +45,21 @@ const CardCar: React.FC = () => {
     }, []);
 
     if (loading) {
-        return (
-            <Loading/>
-        )
+        return <Loading/>
     }
     
     return (
         <div className="grid gap-4 md:gap-6 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2">
             {cars.map(car => (
-                <div key={car.id} className="px-4 py-4 border-2 rounded-lg lg:px-6 lg:py-6">
+                <div key={car.id} className="relative px-4 py-4 border-2 rounded-lg lg:px-6 lg:py-6">
+                    {car.delete.deleted_at && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-slate-100 bg-opacity-50 text-red-700 font-bold hover:bg-opacity-75 duration-200">
+                            <div className="flex flex-col justify-center items-center">
+                                <X size={40}/>
+                                Deleted
+                            </div>
+                        </div>
+                    )}
                     <div className="flex items-center justify-center mb-6">
                         <img src={car.image} className="object-cover object-top md:h-80 md:w-auto" alt="Car"/>
                     </div>
@@ -88,7 +94,7 @@ const CardCar: React.FC = () => {
                     </ul>
                     <div className="flex items-center justify-between mt-6 space-x-2">
                         <Link
-                            to={'/delete-car'}
+                            to={`/delete-car/${car.id}`}
                             className="inline-flex items-center justify-center h-10 w-full mx-auto font-semibold font-sans text-red-500 rounded bg-white border border-red-500 hover:bg-red-200"
                         >
                             <Trash 
