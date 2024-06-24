@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../config/Api';
 import Loading from '../Loading/Loading';
-import { Users, Settings, Calendar, Trash, Edit } from 'react-feather';
+import { Users, Settings, Calendar, Trash, Edit, DollarSign } from 'react-feather';
 
 interface Car {
     id: string;
@@ -57,12 +57,9 @@ const CardCar: React.FC = () => {
                     <div className="flex items-center justify-center mb-6">
                         <img src={car.image} className="object-cover object-top md:h-80 md:w-auto" alt="Car"/>
                     </div>
-                    <p className="mb-3 font-sans text-sm sm:text-base text-justify">
-                        {car.manufacture} / {car.type}
+                    <p className="mb-3 font-sans text-sm sm:text-base font-bold">
+                        {car.manufacture} / {car.model} / {car.type}
                     </p>
-                    <h3 className="mb-3 text-sm sm:text-base font-bold font-sans">
-                        RP {car.rent_price} / hari
-                    </h3>
                     <ul className="space-y-3">
                         <li className="flex text-sm sm:text-base font-sans">
                             <span className="mr-4">
@@ -82,6 +79,12 @@ const CardCar: React.FC = () => {
                             </span>
                             {car.year}
                         </li>
+                        <li className="flex text-sm sm:text-base font-sans">
+                            <span className="mr-4">
+                                <DollarSign size="20"/>
+                            </span>
+                            {car.rent_price} / hari
+                        </li>
                     </ul>
                     <div className="flex items-center justify-between mt-6 space-x-2">
                         <Link
@@ -96,7 +99,7 @@ const CardCar: React.FC = () => {
                             Delete
                         </Link>
                         <Link
-                            to={'/edit-car'}
+                            to={`/edit-car/${car.id}`}
                             className="inline-flex items-center justify-center h-10 w-full mx-auto font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600"
                         >
                             <Edit

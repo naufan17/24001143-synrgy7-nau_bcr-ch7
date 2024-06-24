@@ -22,9 +22,7 @@ interface CarProps {
 
 const ListCar: React.FC<CarProps> = ({ cars, loading }) => {
     if (loading) {
-        return (
-            <Loading/>
-        )
+        return <Loading/>
     }
 
     if (cars.length === 0) {

@@ -33,14 +33,12 @@ const NavProfile: React.FC = () => {
     }, [])
 
     if (!admin) {
-        return (
-            <></>
-        )
+        return null
     }
 
     return (
         <nav>
-            <div className="relative px-4 mt-4 md:px-8 md:mt-8">
+            <div className="relative h-12 px-4 mt-4 md:px-8 md:mt-8">
                 <div className="flex items-center justify-end w-full">
                     <button
                         type="button"
@@ -58,13 +56,15 @@ const NavProfile: React.FC = () => {
                     </button>
                 </div>
                 {showMenu && (
-                    <div className="absolute w-32 right-4 md:right-8 bg-gray-100 border-x-2 border-b-2 border-slate-300 rounded-b-lg hover:bg-gray-200">
-                        <Link 
-                            to="/logout"
-                            className="block py-2 ml-4 font-medium text-sm md:text-base"
-                        >
-                            Logout
-                        </Link>
+                    <div className="flex items-center justify-end w-full">
+                        <div className="inline-flex w-32 bg-gray-100 border-x-2 border-b-2 border-slate-300 rounded-b-lg hover:bg-gray-200">
+                            <Link 
+                                to="/logout"
+                                className="block py-1.5 ml-4 font-medium text-sm md:text-base"
+                            >
+                                Logout
+                            </Link>
+                        </div>                
                     </div>                
                 )}
             </div>

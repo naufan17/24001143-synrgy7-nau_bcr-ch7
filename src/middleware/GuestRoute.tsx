@@ -2,7 +2,11 @@ import React, { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
 
-const GuestRoute: React.FC<{ children: ReactNode }> = ({ children }) => {
+interface GuestRouteProps {
+    children: ReactNode;
+}
+
+const GuestRoute: React.FC<GuestRouteProps> = ({ children }) => {
     const { isAuthenticated } = useAuth();
 
     if (isAuthenticated) {

@@ -1,10 +1,11 @@
 import React from 'react';
+import CardCar from './CardCar';
 import { Link } from 'react-router-dom';
 import { Plus } from 'react-feather';
 
 const ListCar: React.FC = () => {
     return (
-        <>
+        <div className="px-4 py-4 ml-16 sm:ml-20 mx-auto md:px-8 md:py-8"> 
             <div className="flex mb-4 md:mb-6">
                 <h2 className="max-w-md font-sans text-xl font-bold text-gray-800 sm:text-2xl">
                     Cars
@@ -31,7 +32,8 @@ const ListCar: React.FC = () => {
                     </Link>
                 </div>
             </div>
-        </>
+            <CardCar/>
+        </div>
     );
 }
 

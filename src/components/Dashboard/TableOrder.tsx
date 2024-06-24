@@ -33,6 +33,15 @@ interface Order {
 const TableOrder: React.FC = () => {
     const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const tableHeader = [
+        'No',
+        'Car',
+        'Name',
+        'Rent Start',
+        'Rent End',
+        'Status',
+        'Action'
+    ]
 
     const getOrders = async () => {
         try {
@@ -59,36 +68,18 @@ const TableOrder: React.FC = () => {
     }, []);
 
     if (loading) {
-        return (
-            <Loading/>
-        )
+        return <Loading/>
     }
     
     return (
         <table className="w-full">
             <thead>
                 <tr>
-                    <th className="px-3 sm:px-4 py-2 sm:py-3 bg-blue-100 font-medium font-sans text-left text-sm sm:text-base text-gray-800">
-                        No
-                    </th>
-                    <th className="px-3 sm:px-4 py-2 sm:py-3 bg-blue-100 font-medium font-sans text-left text-sm sm:text-base text-gray-800">
-                        Car
-                    </th>
-                    <th className="px-3 sm:px-4 py-2 sm:py-3 bg-blue-100 font-medium font-sans text-left text-sm sm:text-base text-gray-800">
-                        Name
-                    </th>
-                    <th className="px-3 sm:px-4 py-2 sm:py-3 bg-blue-100 font-medium font-sans text-left text-sm sm:text-base text-gray-800">
-                        Rent Start
-                    </th>
-                    <th className="px-3 sm:px-4 py-2 sm:py-3 bg-blue-100 font-medium font-sans text-left text-sm sm:text-base text-gray-800">
-                        Rent End
-                    </th>
-                    <th className="px-3 sm:px-4 py-2 sm:py-3 bg-blue-100 font-medium font-sans text-left text-sm sm:text-base text-gray-800">
-                        Status
-                    </th>
-                    <th className="px-3 sm:px-4 py-2 sm:py-3 bg-blue-100 font-medium font-sans text-left text-sm sm:text-base text-gray-800">
-                        Action
-                    </th>
+                    {tableHeader.map((header, index) => (
+                        <th key={index} className="px-2 sm:px-3 py-2 sm:py-3 bg-blue-100 font-medium font-sans text-left text-sm sm:text-base text-gray-800">
+                            {header}
+                        </th>
+                    ))}
                 </tr>
             </thead>
             <tbody className="divide-y divide-blue-100">
@@ -115,7 +106,7 @@ const TableOrder: React.FC = () => {
                         <td className="px-3 sm:px-4 py-2 sm:py-3">
                             <Link 
                                 to={'/edit-order'}
-                                className="inline-flex font-normal font-sans text-sm sm:text-base text-green-600 hover:font-medium"
+                                className="inline-flex font-normal font-sans text-sm sm:text-base text-green-600"
                             >
                                 <Edit
                                     size={18}

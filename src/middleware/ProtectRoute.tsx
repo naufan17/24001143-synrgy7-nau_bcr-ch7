@@ -2,7 +2,11 @@ import React, { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
 
-const ProtectedRoute: React.FC<{ children: ReactNode }> = ({ children }) => {
+interface ProtectRouteProps {
+    children: ReactNode;
+}
+
+const ProtectedRoute: React.FC<ProtectRouteProps> = ({ children }) => {
     const { isAuthenticated } = useAuth();
 
     if (!isAuthenticated) {

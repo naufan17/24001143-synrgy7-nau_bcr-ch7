@@ -101,7 +101,7 @@ const Login: React.FC = () => {
                                     </svg>
                                 ):(
                                     <>                                
-                                        Sign In
+                                        Login
                                     </>
                                 )}
                             </button>

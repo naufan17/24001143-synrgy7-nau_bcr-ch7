@@ -1,9 +1,9 @@
 import React from 'react';
 import NavProfile from '../components/NavProfile/NavProfile';
 import Sidebar from '../components/Sidebar/Sidebar';
-import Main from '../components/NewCar/NewCar';
+import Main from '../components/EditCar/EditCar';
 
-const NewCar: React.FC = () => {      
+const EditCar: React.FC = () => {      
     return (
         <>
             <NavProfile/>
@@ -13,4 +13,4 @@ const NewCar: React.FC = () => {
     );
 }
 
-export default NewCar;
+export default EditCar;
