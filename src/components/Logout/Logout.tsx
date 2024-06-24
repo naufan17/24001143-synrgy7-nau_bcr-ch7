@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../middleware/AuthProvider';
 
 const Logout: React.FC = () => {
-    const navigate = useNavigate();
+    const { logout } = useAuth();
 
     const logoutUser = async () => {
         try {
-            sessionStorage.removeItem('token');
-            navigate('/login');
+            logout();
         } catch(e) {
             console.log(e);
         }
@@ -17,9 +16,7 @@ const Logout: React.FC = () => {
         logoutUser();
     }, [])
 
-    return (
-        <></>
-    )
+    return null
 }
 
 export default Logout;

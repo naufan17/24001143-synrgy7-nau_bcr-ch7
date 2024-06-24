@@ -8,17 +8,19 @@ import Dashboard from "../pages/Dashboard";
 import ListCar from "../pages/ListCar";
 import NewCar from '../pages/NewCar';
 import NotFound from '../pages/NotFound';
+import GuestRoute from '../middleware/GuestRoute';
+import ProtectedRoute from '../middleware/ProtectRoute';
 
 const AppRoute: React.FC = () => {
     return (
         <Routes>
             <Route path = "/" element = {<Home/>}/>
-            <Route path = "/login" element = {<Login/>}/>
-            <Route path = "/logout" element = {<Logout/>}/>
             <Route path = "/cars" element = {<FilterCar/>}/>
-            <Route path = "/dashboard" element = {<Dashboard/>}/>
-            <Route path = "/list-cars" element = {<ListCar/>}/>
-            <Route path = "/new-car" element = {<NewCar/>}/>
+            <Route path = "/login" element = {<GuestRoute><Login/></GuestRoute>}/>
+            <Route path = "/logout" element = {<ProtectedRoute><Logout/></ProtectedRoute>}/>
+            <Route path = "/dashboard" element = {<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
+            <Route path = "/list-cars" element = {<ProtectedRoute><ListCar/></ProtectedRoute>}/>
+            <Route path = "/new-car" element = {<ProtectedRoute><NewCar/></ProtectedRoute>}/>
             <Route path = "*" element = {<NotFound/>}/>
         </Routes>
     );
