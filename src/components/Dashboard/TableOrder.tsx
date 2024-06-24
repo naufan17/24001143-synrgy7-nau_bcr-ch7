@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../config/Api';
-import Loading from '../Loading/Loading'
+import Loading from '../Common/Loading/Loading'
 import { Link } from 'react-router-dom';
 import { Edit } from 'react-feather';
 

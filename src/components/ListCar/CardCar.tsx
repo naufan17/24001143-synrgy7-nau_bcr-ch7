@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../config/Api';
-import Loading from '../Loading/Loading';
+import Loading from '../Common/Loading/Loading';
 import { Users, Settings, Calendar, Trash, Edit, DollarSign, X } from 'react-feather';
 
 interface Deleted {

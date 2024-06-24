@@ -1,7 +1,7 @@
 import React from 'react';
 import { Users, Settings, Calendar } from 'react-feather';
 import { Link } from 'react-router-dom';
-import Loading from '../Loading/Loading';
+import Loading from '../Common/Loading/Loading';
 
 interface Car {
     id: string;

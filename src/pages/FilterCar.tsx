@@ -1,8 +1,8 @@
 import React from 'react';
-import Navbar from '../components/Navbar/Navbar';
-import Header from '../components/Header/Header';
+import Navbar from '../components/Layout/Navbar/Navbar';
+import Header from '../components/Layout/Header/Header';
 import Main from '../components/FilterCar/FilterCar';
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/Layout/Footer/Footer';
 
 const FilterCar: React.FC = () => {      
     return (
