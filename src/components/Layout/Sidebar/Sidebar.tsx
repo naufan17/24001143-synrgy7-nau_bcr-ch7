@@ -24,7 +24,7 @@ const Sidebar: React.FC = () => {
                             <Truck className='mb-1'/>
                             <span>Cars</span>
                         </Link>
-                        </li>
+                    </li>
                 </ul>
             </div>
         </nav>

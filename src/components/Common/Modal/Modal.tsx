@@ -1,5 +1,4 @@
 import React from 'react';
-import { X } from 'react-feather';
 
 interface ModalProps {
     show: boolean;
@@ -9,7 +8,7 @@ interface ModalProps {
     message?: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ show, onClose, onConfirm, title = "Confirm Action", message = "Are you sure you want to proceed?" }) => {
+const Modal: React.FC<ModalProps> = ({ show, onClose, onConfirm, title, message }) => {
     if (!show) return null;
 
     return (

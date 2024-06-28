@@ -1,5 +1,5 @@
 import React from "react";
-import FormCar from "../FormCar/FormCar";
+import FormCar from "../Common/FormCar/FormCar";
 
 const NewCar: React.FC = () => {
     return (

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../../config/Api';
+import { useAuth } from '../../../middleware/AuthProvider';
+
 
 interface Admin {
     id: string;
@@ -13,6 +15,8 @@ interface Admin {
 const NavProfile: React.FC = () => {
     const [admin, setAdmin] = useState<Admin | undefined>(undefined);
     const [showMenu, setShowMenu] = useState<boolean>(false);
+    const { logout } = useAuth();
+
 
     const getAdmin = async () => {
         try {
@@ -26,6 +30,10 @@ const NavProfile: React.FC = () => {
         } catch (e) {
             console.error(e);
         }
+    }
+
+    const logoutUser = () => {
+        logout();
     }
 
     useEffect(() => {
@@ -58,12 +66,12 @@ const NavProfile: React.FC = () => {
                 {showMenu && (
                     <div className="flex items-center justify-end w-full">
                         <div className="inline-flex w-32 bg-gray-100 border-x-2 border-b-2 border-slate-300 rounded-b-lg hover:bg-gray-200">
-                            <Link 
-                                to="/logout"
+                            <button 
+                                onClick={logoutUser}
                                 className="block py-1.5 ml-4 font-medium text-sm md:text-base"
                             >
                                 Logout
-                            </Link>
+                            </button>
                         </div>                
                     </div>                
                 )}

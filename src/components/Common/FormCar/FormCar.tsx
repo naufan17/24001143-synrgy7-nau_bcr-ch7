@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from "../../config/Api";
+import axios from "../../../config/Api";
 
 const FormCar: React.FC = () => {
     const [plate, setPlate] = useState<string>('');
