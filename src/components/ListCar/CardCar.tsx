@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../config/Api';
 import Loading from '../Common/Loading/Loading';
+import Modal from '../Common/Modal/Modal';
 import { Users, Settings, Calendar, Trash, Edit, DollarSign, X } from 'react-feather';
 
 interface Deleted {
@@ -24,6 +25,8 @@ interface Car {
 const CardCar: React.FC = () => {
     const [cars, setCars] = useState<Car[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const [modal, setModal] = useState<boolean>(false);
+    const [idCar, setIdCar] = useState<string>('');
 
     const getCars = async () => {
         try {
@@ -38,6 +41,33 @@ const CardCar: React.FC = () => {
         } catch (err) {
             console.error(err)
         }
+    }
+
+    const deleteCar = async (id: string) => {
+        try {
+            const token = sessionStorage.getItem('token');
+            await axios.delete(`/car/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            getCars();
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    const handleDeleteCar = (id: string) => {
+        setModal(true);
+        setIdCar(id);
+    }
+
+    const handleConfirmDelete = () => {
+        if (idCar) {
+            deleteCar(idCar);
+        }
+
+        setModal(false);
     }
 
     useEffect(() => {
@@ -93,8 +123,8 @@ const CardCar: React.FC = () => {
                         </li>
                     </ul>
                     <div className="flex items-center justify-between mt-6 space-x-2">
-                        <Link
-                            to={`/delete-car/${car.id}`}
+                        <button
+                            onClick={() => handleDeleteCar(car.id)} 
                             className="inline-flex items-center justify-center h-10 w-full mx-auto font-semibold font-sans text-red-500 rounded bg-white border border-red-500 hover:bg-red-200"
                         >
                             <Trash 
@@ -103,7 +133,7 @@ const CardCar: React.FC = () => {
                                 className='mr-1'
                             />
                             Delete
-                        </Link>
+                        </button>
                         <Link
                             to={`/edit-car/${car.id}`}
                             className="inline-flex items-center justify-center h-10 w-full mx-auto font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600"
@@ -118,6 +148,13 @@ const CardCar: React.FC = () => {
                     </div>
                 </div>
             ))}
+            <Modal
+                show={modal}
+                onClose={() => setModal(false)}
+                onConfirm={handleConfirmDelete}
+                title="Menghapus Data Mobil"
+                message="Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin ingin menghapus?"
+            />
         </div>
     );
 }
