@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from '../../../config/Api';
 import { useAuth } from '../../../middleware/AuthProvider';
-
 
 interface Admin {
     id: string;

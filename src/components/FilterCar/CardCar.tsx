@@ -20,7 +20,7 @@ interface CarProps {
     loading: boolean;
 }
 
-const ListCar: React.FC<CarProps> = ({ cars, loading }) => {
+const CardCar: React.FC<CarProps> = ({ cars, loading }) => {
     if (loading) {
         return <Loading/>
     }
@@ -34,7 +34,7 @@ const ListCar: React.FC<CarProps> = ({ cars, loading }) => {
     }
 
     return (
-        <div className="grid gap-4 md:gap-6 lg:grid-cols-3 md:grid-cols-2 mt-8 md:mt-12">
+        <div className="grid gap-4 md:gap-6 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 mt-8 md:mt-12">
             {cars.map(car =>
                 <div key={car.id} className="px-4 py-4 border-2 rounded-lg lg:px-6 lg:py-6">
                     <div className="flex items-center justify-center mb-6">
@@ -83,4 +83,4 @@ const ListCar: React.FC<CarProps> = ({ cars, loading }) => {
     )
 }
 
-export default ListCar;
+export default CardCar;

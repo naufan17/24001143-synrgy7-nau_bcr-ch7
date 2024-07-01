@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../config/Api';
-import ListCar from './ListCar';
+import ListCar from './CardCar';
 
 interface Car {
     id: string;

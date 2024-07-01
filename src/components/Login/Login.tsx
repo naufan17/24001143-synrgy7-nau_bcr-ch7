@@ -53,7 +53,7 @@ const Login: React.FC = () => {
                     { alert &&
                         <Alert
                             status={false}
-                            message={"Username dan Password tidak sesuai"}
+                            message={"Username dan  Password tidak sesuai"}
                             onClose={() => setAlert(false)}
                         />
                     }
