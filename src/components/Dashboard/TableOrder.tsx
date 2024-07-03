@@ -46,7 +46,7 @@ const TableOrder: React.FC = () => {
     const getOrders = async () => {
         try {
             const token = sessionStorage.getItem('token');
-            const result = await axios.get('order', {
+            const result = await axios.get('/order', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

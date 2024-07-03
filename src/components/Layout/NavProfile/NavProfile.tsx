@@ -15,11 +15,10 @@ const NavProfile: React.FC = () => {
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const { logout } = useAuth();
 
-
     const getAdmin = async () => {
         try {
             const token = sessionStorage.getItem('token');
-            const result = await axios.get('admin', {
+            const result = await axios.get('/admin', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

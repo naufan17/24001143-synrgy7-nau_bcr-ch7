@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from "../../../config/Api";
+import axios from "../../config/Api";
 
 const FormCar: React.FC = () => {
     const [plate, setPlate] = useState<string>('');
@@ -8,11 +8,11 @@ const FormCar: React.FC = () => {
     const [model, setModel] = useState<string>('');
     const [image, setImage] = useState<File | null>(null);
     const [imageUrl, setImageUrl] = useState<string>('');
-    const [capacity, setCapacity] = useState<number | undefined>(undefined);
+    const [capacity, setCapacity] = useState<number | string>('');
     const [transmission, setTransmission] = useState<string>('');
     const [type, setType] = useState<string>('');
-    const [year, setYear] = useState<number | undefined>(undefined);
-    const [rentPrice, setRentPrice] = useState<number | undefined>(undefined);
+    const [year, setYear] = useState<number | string>('');
+    const [rentPrice, setRentPrice] = useState<number | string>('');
     const [description, setDescription] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ const FormCar: React.FC = () => {
     const createCar = async () => {
         try {
             const token = sessionStorage.getItem('token');
-            await axios.post('car', {
+            await axios.post('/car', {
                 plate,
                 manufacture,
                 model,
@@ -47,7 +47,7 @@ const FormCar: React.FC = () => {
         
         try {
             const token = sessionStorage.getItem('token');
-            const result = await axios.post('car/image', {
+            const result = await axios.post('/car/image', {
                 image
             }, {
                 headers: {
@@ -69,37 +69,37 @@ const FormCar: React.FC = () => {
         }
     }
 
-    const handlePlateChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setPlate(e.target.value);
-    }
-
-    const handleManufactureChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setManufacture(e.target.value);
-    }
-
-    const handleModelChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setModel(e.target.value);
-    }
-
-    const handleCapacityChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setCapacity(parseInt(e.target.value));
-    }
-
-    const handleTransmissionChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setTransmission(e.target.value);
-    }
-
-    const handleTypeChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setType(e.target.value);
-    }
-
-    const handleYearChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setYear(parseInt(e.target.value));
-    }
-
-    const handleRentPriceChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setRentPrice(parseInt(e.target.value));
-    }
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        switch (name) {
+          case "plate":
+            setPlate(value);
+            break;
+          case "manufacture":
+            setManufacture(value);
+            break;
+          case "model":
+            setModel(value);
+            break;
+          case "capacity":
+            setCapacity(value);
+            break;
+          case "transmission":
+            setTransmission(value);
+            break;
+          case "type":
+            setType(value);
+            break;
+          case "year":
+            setYear(value);
+            break;
+          case "rent_price":
+            setRentPrice(value);
+            break;
+          default:
+            break;
+        }
+    };
 
     const handleDescriptionChange = async (e: ChangeEvent<HTMLTextAreaElement>) => {
         setDescription(e.target.value);
@@ -111,11 +111,11 @@ const FormCar: React.FC = () => {
         setManufacture('');
         setModel('');
         setImage(null)
-        setCapacity(0);
+        setCapacity('');
         setTransmission('');
         setType('');
-        setYear(0);
-        setRentPrice(0);
+        setYear('');
+        setRentPrice('');
         setDescription('');
         setLoading(false);
     }
@@ -164,7 +164,7 @@ const FormCar: React.FC = () => {
                             id="plate"
                             name="plate"
                             value={plate}
-                            onChange={handlePlateChange}
+                            onChange={handleInputChange}
                             className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
                             required
                         />
@@ -183,7 +183,7 @@ const FormCar: React.FC = () => {
                             id="manufacture"
                             name="manufacture"
                             value={manufacture}
-                            onChange={handleManufactureChange}
+                            onChange={handleInputChange}
                             className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
                             required
                         />
@@ -202,7 +202,7 @@ const FormCar: React.FC = () => {
                             id="model"
                             name="model"
                             value={model}
-                            onChange={handleModelChange}
+                            onChange={handleInputChange}
                             className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
                             required
                         />
@@ -221,7 +221,7 @@ const FormCar: React.FC = () => {
                             id="capacity"
                             name="capacity"
                             value={capacity}
-                            onChange={handleCapacityChange}
+                            onChange={handleInputChange}
                             className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
                             required
                         />
@@ -240,7 +240,7 @@ const FormCar: React.FC = () => {
                             id="transmission"
                             name="transmission"
                             value={transmission}
-                            onChange={handleTransmissionChange}
+                            onChange={handleInputChange}
                             className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
                             required
                         />
@@ -259,7 +259,7 @@ const FormCar: React.FC = () => {
                             id="type"
                             name="type"
                             value={type}
-                            onChange={handleTypeChange}
+                            onChange={handleInputChange}
                             className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
                             required
                         />
@@ -278,7 +278,7 @@ const FormCar: React.FC = () => {
                             id="year"
                             name="year"
                             value={year}
-                            onChange={handleYearChange}
+                            onChange={handleInputChange}
                             className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
                             required
                         />
@@ -297,7 +297,7 @@ const FormCar: React.FC = () => {
                             id="rentPrice"
                             name="rentPrice"
                             value={rentPrice}
-                            onChange={handleRentPriceChange}
+                            onChange={handleInputChange}
                             className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
                             required
                         />

@@ -30,7 +30,7 @@ const FilterCar: React.FC = () => {
 
     const getCars = async () => {
         try {
-            const result = await axios.get('car');
+            const result = await axios.get('/car');
             setCars(result.data.data.cars)
             setLoading(false);
         } catch (err) {

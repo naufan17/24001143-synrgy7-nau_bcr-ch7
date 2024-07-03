@@ -1,7 +1,11 @@
 import React from "react";
-import FormCar from "../Common/FormCar/FormCar";
+import FormCar from "./FormCar";
 
-const EditCar: React.FC = () => {
+interface EditCarProps {
+    id: string | undefined;
+}
+
+const EditCar: React.FC<EditCarProps> = ({ id }) => {
     return (
         <div className="px-4 py-4 ml-16 sm:ml-20 mx-auto lg:px-8 lg:py-8"> 
             <div className="flex mb-6 md:mb-8">
@@ -15,7 +19,9 @@ const EditCar: React.FC = () => {
                     Edit Car
                 </h2>
             </div>
-            <FormCar/>
+            <FormCar
+                id={id}
+            />
         </div>
     )
 }

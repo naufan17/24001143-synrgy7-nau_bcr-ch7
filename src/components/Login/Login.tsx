@@ -12,7 +12,7 @@ const Login: React.FC = () => {
 
     const loginUser = async () => {
         try {
-            const result = await axios.post('admin/login', { username, password });
+            const result = await axios.post('/admin/login', { username, password });
             login(result.data.data.token)
         } catch(e) {
             console.log(e);

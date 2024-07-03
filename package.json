@@ -27,10 +27,7 @@
     "lint": "eslint ."
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": []
   },
   "browserslist": {
     "production": [
@@ -45,12 +42,13 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@eslint/compat": "^1.1.0",
     "@eslint/js": "^9.6.0",
-    "eslint": "^9.6.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
-    "globals": "^15.6.0",
+    "globals": "^15.8.0",
     "tailwindcss": "^3.4.4",
-    "typescript-eslint": "^7.14.1"
+    "typescript-eslint": "^7.15.0"
   }
 }
