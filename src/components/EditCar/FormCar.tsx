@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import { requestFindCar, requestUpdateCar } from "../../api/CarApi";
 import axios from "../../config/Api";
 
 interface FormCarProps {
@@ -21,58 +22,45 @@ const FormCar: React.FC<FormCarProps> = ({ id }) => {
     const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    const findCar = async () => {
-        try {
-            const token = sessionStorage.getItem('token');
-            const result = await axios.get(`/car/${id}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            const carData = result.data.data;
-            setPlate(carData.plate);
-            setManufacture(carData.manufacture);
-            setModel(carData.model);
-            setImageUrl(carData.image);
-            setCapacity(carData.capacity);
-            setTransmission(carData.transmission);
-            setType(carData.type);
-            setYear(carData.year);
-            setRentPrice(carData.rent_price);
-            setDescription(carData.description);
-        } catch(e) {
-            console.log(e);
-        }
-    }
-
     useEffect(() => {
         if (id) {
             findCar();
         }
-    })
+    }, [])
+
+    const findCar = async () => {
+        const result = await requestFindCar(id);
+        if (result !== null) {
+            setPlate(result.plate);
+            setManufacture(result.manufacture);
+            setModel(result.model);
+            setImageUrl(result.image);
+            setCapacity(result.capacity);
+            setTransmission(result.transmission);
+            setType(result.type);
+            setYear(result.year);
+            setRentPrice(result.rent_price);
+            setDescription(result.description);    
+        }
+    }
 
     const updateCar = async () => {
-        try {
-            const token = sessionStorage.getItem('token');
-            await axios.put(`/car`, {
-                plate,
-                manufacture,
-                model,
-                image: imageUrl,
-                capacity,
-                transmission,
-                type,
-                year,
-                rent_price: rentPrice,
-                description
-            }, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
+        const result = await requestUpdateCar(
+            id,
+            plate,
+            manufacture,
+            model,
+            imageUrl,
+            capacity,
+            transmission,
+            type,
+            year,
+            rentPrice,
+            description,
+        )
+
+        if (result) {
             navigate('/list-cars')
-        } catch(e) {
-            console.log(e);
         }
     }
 
@@ -91,7 +79,6 @@ const FormCar: React.FC<FormCarProps> = ({ id }) => {
             });
             // Error to save url link
             setImageUrl(result.data.data.url);
-            console.log(imageUrl);
         } catch(e) {
             console.log(e);
         }
@@ -127,7 +114,7 @@ const FormCar: React.FC<FormCarProps> = ({ id }) => {
           case "year":
             setYear(value);
             break;
-          case "rent_price":
+          case "rentPrice":
             setRentPrice(value);
             break;
           default:
@@ -181,7 +168,6 @@ const FormCar: React.FC<FormCarProps> = ({ id }) => {
                             onChange={handleImageChange}
                             className="flex w-full text-sm sm:text-base font-medium
                                         file:cursor-pointer file:h-10 file:px-4 file:mr-4 file:bg-blue-200 file:hover:bg-blue-300 file:text-blue-800 file:border-0 file:rounded-full"
-                            required
                         />
                     </div>
                     <div className="flex items-center">

@@ -1,16 +1,16 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Alert from '../Common/Alert/Alert'
-import { authService } from '../../services/AuthService';
+import { auth } from '../../api/AuthApi';
 
 const Login: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [alert, setAlert] = useState<boolean>(false);
-    const { loginAdminService } = authService();
+    const { requestLoginAdmin } = auth();
 
     const loginAdmin = async () => {
-        const isLoggedIn = await loginAdminService(username, password);
+        const isLoggedIn = await requestLoginAdmin(username, password);
 
         if (!isLoggedIn) {
             setLoading(false);

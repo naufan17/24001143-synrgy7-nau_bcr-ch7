@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Car } from '../../interfaces/CarInterface'
-import { getCarsService } from '../../services/CarService';
+import { requestGetCars } from '../../api/CarApi';
 import ListCar from './CardCar';
 
 const FilterCar: React.FC = () => {
@@ -13,7 +13,7 @@ const FilterCar: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
 
     const getCars = async () => {
-        const result = await getCarsService();
+        const result = await requestGetCars();
 
         if (result !== null) {
             setCars(result);

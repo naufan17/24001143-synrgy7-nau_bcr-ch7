@@ -1,7 +1,7 @@
 import { Order } from "../interfaces/OrderInterface";
 import axios from '../config/Api';
 
-const getOrdersService = async (): Promise<Order[] | null> => {
+const requestGetOrders = async (): Promise<Order[] | null> => {
     try {
         const token = sessionStorage.getItem('token');
         const result = await axios.get('/order', {
@@ -15,4 +15,4 @@ const getOrdersService = async (): Promise<Order[] | null> => {
     }
 }
 
-export { getOrdersService }
+export { requestGetOrders }

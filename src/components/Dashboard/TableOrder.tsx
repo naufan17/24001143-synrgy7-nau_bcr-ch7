@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Edit } from 'react-feather';
 import { Order } from '../../interfaces/OrderInterface';
-import { getOrdersService } from '../../services/OrderService';
+import { requestGetOrders } from '../../api/OrderApi';
 import { formatDate } from '../../utils/formatDate';
 import Loading from '../Common/Loading/Loading'
 
@@ -20,7 +20,7 @@ const TableOrder: React.FC = () => {
     ]
 
     const getOrders = async () => {
-        const result = await getOrdersService();
+        const result = await requestGetOrders();
 
         if (result !== null) {
             setOrders(result);

@@ -1,10 +1,10 @@
 import { useAuth } from '../middleware/AuthProvider';
 import axios from '../config/Api';
 
-const authService = () => {
+const auth = () => {
     const { login } = useAuth();
 
-    const loginAdminService = async (username: string, password: string): Promise<boolean> => {
+    const requestLoginAdmin = async (username: string, password: string): Promise<boolean> => {
         try {
             const result = await axios.post('/admin/login', { username, password });
             login(result.data.data.token);
@@ -15,7 +15,7 @@ const authService = () => {
         }
     };
 
-    return { loginAdminService };
+    return { requestLoginAdmin };
 };
 
 const validateToken = async (token: string): Promise<boolean> => {
@@ -32,4 +32,4 @@ const validateToken = async (token: string): Promise<boolean> => {
     }
 }
 
-export { authService, validateToken }
+export { auth, validateToken }

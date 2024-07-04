@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from "../../config/Api";
+import { requestCreateCar } from "../../api/CarApi";
+import { requestUploadImageCar } from "../../api/ImageApi";
 
 const FormCar: React.FC = () => {
     const [plate, setPlate] = useState<string>('');
@@ -18,49 +19,33 @@ const FormCar: React.FC = () => {
     const navigate = useNavigate();
 
     const createCar = async () => {
-        try {
-            const token = sessionStorage.getItem('token');
-            await axios.post('/car', {
-                plate,
-                manufacture,
-                model,
-                image: imageUrl,
-                capacity,
-                transmission,
-                type,
-                year,
-                rent_price: rentPrice,
-                description
-            }, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            navigate('/list-cars')
-        } catch(e) {
-            console.log(e);
+        const result = await requestCreateCar(
+            plate,
+            manufacture,
+            model,
+            imageUrl,
+            capacity,
+            transmission,
+            type,
+            year,
+            rentPrice,
+            description,
+        )
+
+        if (result) {
+            navigate('/list/cars')
         }
     }
 
     const uploadImageCar = async () => {
-        if (!image) return;
-        
-        try {
-            const token = sessionStorage.getItem('token');
-            const result = await axios.post('/car/image', {
-                image
-            }, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
+        const result = await requestUploadImageCar(image);
+
+        if (result !== null) {
             // Error to save url link
-            setImageUrl(result.data.data.url);
-            console.log(imageUrl);
-        } catch(e) {
-            console.log(e);
-        }
+            setImageUrl(result);
+            console.log(result);
+            console.log(imageUrl);            
+        }        
     }
 
     const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -93,7 +78,7 @@ const FormCar: React.FC = () => {
           case "year":
             setYear(value);
             break;
-          case "rent_price":
+          case "rentPrice":
             setRentPrice(value);
             break;
           default:
@@ -147,7 +132,6 @@ const FormCar: React.FC = () => {
                             onChange={handleImageChange}
                             className="flex w-full text-sm sm:text-base font-medium
                                         file:cursor-pointer file:h-10 file:px-4 file:mr-4 file:bg-blue-200 file:hover:bg-blue-300 file:text-blue-800 file:border-0 file:rounded-full"
-                            required
                         />
                     </div>
                     <div className="flex items-center">

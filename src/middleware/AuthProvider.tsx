@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useContext, ReactNode, FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { validateToken } from '../services/AuthService';
+import { validateToken } from '../api/AuthApi';
 
 interface AuthContextType {
     isAuthenticated: boolean;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Settings, Calendar, Trash, Edit, DollarSign, X } from 'react-feather';
-import { getCarsServiceDetail, deleteCarService } from '../../services/CarService';
+import { requestGetCarsDetail, requestDeleteCar } from '../../api/CarApi';
 import { CarDetail } from '../../interfaces/CarInterface'
 import Loading from '../Common/Loading/Loading';
 import Modal from '../Common/Modal/Modal';
@@ -15,7 +15,7 @@ const CardCar: React.FC = () => {
     const [alert, setAlert] = useState<boolean>(false);
 
     const getCars = async () => {
-        const result = await getCarsServiceDetail();
+        const result = await requestGetCarsDetail();
 
         if (result !== null) {
             setCars(result);
@@ -24,7 +24,7 @@ const CardCar: React.FC = () => {
     }
 
     const deleteCar = async (id: string) => {
-        const result = await deleteCarService(id);
+        const result = await requestDeleteCar(id);
 
         if (result) {
             getCars();
