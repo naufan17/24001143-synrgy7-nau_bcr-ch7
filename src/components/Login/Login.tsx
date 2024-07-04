@@ -1,21 +1,18 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import axios from '../../config/Api';
-import { useAuth } from '../../middleware/AuthProvider';
 import Alert from '../Common/Alert/Alert'
+import { authService } from '../../services/AuthService';
 
 const Login: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [alert, setAlert] = useState<boolean>(false);
-    const { login } = useAuth();
+    const { loginAdminService } = authService();
 
-    const loginUser = async () => {
-        try {
-            const result = await axios.post('/admin/login', { username, password });
-            login(result.data.data.token)
-        } catch(e) {
-            console.log(e);
+    const loginAdmin = async () => {
+        const isLoggedIn = await loginAdminService(username, password);
+
+        if (!isLoggedIn) {
             setLoading(false);
             setAlert(true);
         }
@@ -24,16 +21,22 @@ const Login: React.FC = () => {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
-        loginUser();
+        loginAdmin();
     }
 
-    const handleUsernameChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setUsername(e.target.value);
-    }
-
-    const handlePasswordChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value);
-    }
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        switch (name) {
+          case "username":
+            setUsername(value);
+            break;
+          case "password":
+            setPassword(value);
+            break;
+          default:
+            break;
+        }
+    };
 
     return (
         <div className="relative">
@@ -67,7 +70,7 @@ const Login: React.FC = () => {
                                 id="username" 
                                 name="username" 
                                 value={username} 
-                                onChange={handleUsernameChange} 
+                                onChange={handleInputChange} 
                                 className="flex-grow w-full h-10 md:h-12 px-4 mb-2 text-sm sm:text-base border-2 rounded-lg focus:outline-none focus:border-slate-300" 
                                 required
                             />
@@ -81,7 +84,7 @@ const Login: React.FC = () => {
                                 id="password" 
                                 name="password" 
                                 value={password}
-                                onChange={handlePasswordChange} 
+                                onChange={handleInputChange} 
                                 className="flex-grow w-full h-10 md:h-12 px-4 mb-2 text-sm sm:text-base border-2 rounded-lg focus:outline-none focus:border-slate-300" 
                                 required
                             />

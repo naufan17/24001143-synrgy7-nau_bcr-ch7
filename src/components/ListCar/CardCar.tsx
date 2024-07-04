@@ -1,61 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from '../../config/Api';
+import { Users, Settings, Calendar, Trash, Edit, DollarSign, X } from 'react-feather';
+import { getCarsServiceDetail, deleteCarService } from '../../services/CarService';
+import { CarDetail } from '../../interfaces/CarInterface'
 import Loading from '../Common/Loading/Loading';
 import Modal from '../Common/Modal/Modal';
 import Alert from '../Common/Alert/Alert';
-import { Users, Settings, Calendar, Trash, Edit, DollarSign, X } from 'react-feather';
-
-interface Deleted {
-    deleted_at?: string;
-}
-
-interface Car {
-    id: string;
-    manufacture: string;
-    model: string;
-    image: string;
-    capacity: number;
-    transmission: string;
-    type: string;
-    year: number;
-    rent_price: number;
-    delete: Deleted;
-}
 
 const CardCar: React.FC = () => {
-    const [cars, setCars] = useState<Car[]>([]);
+    const [cars, setCars] = useState<CarDetail[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [modal, setModal] = useState<boolean>(false);
     const [idCar, setIdCar] = useState<string>('');
     const [alert, setAlert] = useState<boolean>(false);
 
     const getCars = async () => {
-        try {
-            const token = sessionStorage.getItem('token');
-            const result = await axios.get('/car', {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            setCars(result.data.data.cars)
+        const result = await getCarsServiceDetail();
+
+        if (result !== null) {
+            setCars(result);
             setLoading(false);
-        } catch (err) {
-            console.error(err)
         }
     }
 
     const deleteCar = async (id: string) => {
-        try {
-            const token = sessionStorage.getItem('token');
-            await axios.delete(`/car/${id}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
+        const result = await deleteCarService(id);
+
+        if (result) {
             getCars();
-        } catch (err) {
-            console.error(err)
         }
     }
 

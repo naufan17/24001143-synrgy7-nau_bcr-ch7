@@ -1,45 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../../../config/Api';
 import { useAuth } from '../../../middleware/AuthProvider';
 
-interface Admin {
-    id: string;
-    username: string;
-    super_admin: boolean;
-    exp: number;
-    iat: number;
-}
-
 const NavProfile: React.FC = () => {
-    const [admin, setAdmin] = useState<Admin | undefined>(undefined);
+    const [admin, setAdmin] = useState<string | null>(null);
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const { logout } = useAuth();
-
-    const getAdmin = async () => {
-        try {
-            const token = sessionStorage.getItem('token');
-            const result = await axios.get('/admin', {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            setAdmin(result.data.data);
-        } catch (e) {
-            console.error(e);
-        }
-    }
 
     const logoutUser = () => {
         logout();
     }
 
     useEffect(() => {
-        getAdmin();
+        setAdmin(localStorage.getItem('admin'))
     }, [])
-
-    if (!admin) {
-        return null
-    }
 
     return (
         <nav>
@@ -57,7 +30,7 @@ const NavProfile: React.FC = () => {
                             alt="Profile"
                             className="w-8 h-8 rounded-full mr-2"
                         />
-                        {admin.username}
+                        {admin}
                     </button>
                 </div>
                 {showMenu && (

@@ -1,39 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../../config/Api';
-import Loading from '../Common/Loading/Loading'
 import { Link } from 'react-router-dom';
 import { Edit } from 'react-feather';
-
-interface Car {
-    manufacture: string;
-    model: string;
-    type: string;
-}
-
-interface User {
-    name: string;
-    email: string;
-    address: string;
-    phone_number: string;
-}
-
-interface Order {
-    id: string;
-    durations: number;
-    rent_start: string;
-    rent_end: string;
-    total_price: number;
-    status: string;
-    created_at: string;
-    updated_at: string;
-    car: Car;
-    user: User;
-}
+import { Order } from '../../interfaces/OrderInterface';
+import { getOrdersService } from '../../services/OrderService';
+import { formatDate } from '../../utils/formatDate';
+import Loading from '../Common/Loading/Loading'
 
 const TableOrder: React.FC = () => {
     const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const tableHeader = [
+    const tableHeader: string[] = [
         'No',
         'Car',
         'Name',
@@ -44,24 +20,13 @@ const TableOrder: React.FC = () => {
     ]
 
     const getOrders = async () => {
-        try {
-            const token = sessionStorage.getItem('token');
-            const result = await axios.get('/order', {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            setOrders(result.data.data.orders)
+        const result = await getOrdersService();
+
+        if (result !== null) {
+            setOrders(result);
             setLoading(false);
-        } catch (err) {
-            console.error(err)
         }
     }
-
-    const formatDate = (isoString: string) => {
-        const date = new Date(isoString);
-        return date.toLocaleString();
-    };
 
     useEffect(() => {
         getOrders();

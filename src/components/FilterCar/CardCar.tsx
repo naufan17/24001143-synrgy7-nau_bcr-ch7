@@ -1,19 +1,8 @@
 import React from 'react';
-import { Users, Settings, Calendar } from 'react-feather';
 import { Link } from 'react-router-dom';
+import { Users, Settings, Calendar } from 'react-feather';
+import { Car } from '../../interfaces/CarInterface'
 import Loading from '../Common/Loading/Loading';
-
-interface Car {
-    id: string;
-    image: string;
-    manufacture: string;
-    type: string;
-    description: string;
-    capacity: number;
-    transmission: string;
-    year: number;
-    rent_price: number;
-}
 
 interface CarProps {
     cars: Car[];

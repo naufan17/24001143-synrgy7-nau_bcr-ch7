@@ -1,23 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../../config/Api';
+import { Car } from '../../interfaces/CarInterface'
+import { getCarsService } from '../../services/CarService';
 import ListCar from './CardCar';
-
-interface Car {
-    id: string;
-    plate: string;
-    manufacture: string;
-    model: string;
-    image: string;
-    capacity: number;
-    description: string;
-    transmission: string;
-    type: string;
-    year: number;
-    available: boolean;
-    rent_price: number;
-    options: string[];
-    specs: string[];
-}
 
 const FilterCar: React.FC = () => {
     const [cars, setCars] = useState<Car[]>([]);
@@ -29,12 +13,11 @@ const FilterCar: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
 
     const getCars = async () => {
-        try {
-            const result = await axios.get('/car');
-            setCars(result.data.data.cars)
+        const result = await getCarsService();
+
+        if (result !== null) {
+            setCars(result);
             setLoading(false);
-        } catch (err) {
-            console.error(err)
         }
     }
 
