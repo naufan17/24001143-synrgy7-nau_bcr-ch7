@@ -11,7 +11,7 @@ interface User {
     phone_number: string;
 }
 
-interface Order {
+export interface Order {
     id: string;
     durations: number;
     rent_start: string;
@@ -23,5 +23,3 @@ interface Order {
     car: Car;
     user: User;
 }
-
-export type { Order };

@@ -1,6 +1,6 @@
 import axios from "../config/Api";
 
-const requestUploadImageCar = async (image: any): Promise<string | null> => {
+export const requestUploadImageCar = async (image: any): Promise<string | null> => {
     try {
         const token = sessionStorage.getItem('token');
         const result = await axios.post('/car/image', {
@@ -16,5 +16,3 @@ const requestUploadImageCar = async (image: any): Promise<string | null> => {
         return null;
     }
 }
-
-export { requestUploadImageCar };

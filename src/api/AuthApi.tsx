@@ -1,7 +1,7 @@
 import { useAuth } from '../middleware/AuthProvider';
 import axios from '../config/Api';
 
-const auth = () => {
+export const auth = () => {
     const { login } = useAuth();
 
     const requestLoginAdmin = async (username: string, password: string): Promise<boolean> => {
@@ -18,7 +18,7 @@ const auth = () => {
     return { requestLoginAdmin };
 };
 
-const validateToken = async (token: string): Promise<boolean> => {
+export const validateToken = async (token: string): Promise<boolean> => {
     try {
         const result = await axios.get('/validate-token', {
             headers: {
@@ -31,5 +31,3 @@ const validateToken = async (token: string): Promise<boolean> => {
         return false;
     }
 }
-
-export { auth, validateToken }

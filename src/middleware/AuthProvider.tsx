@@ -14,7 +14,7 @@ interface AuthProviderProps {
     children: ReactNode;
 }
 
-const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
+export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
     const navigate = useNavigate();
 
@@ -49,12 +49,10 @@ const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     );
 };
 
-const useAuth = (): AuthContextType => {
+export const useAuth = (): AuthContextType => {
     const context = useContext(AuthContext);
     if (!context) {
         throw new Error('useAuth must be used within an AuthProvider');
     }
     return context;
 };
-
-export { AuthProvider, useAuth }

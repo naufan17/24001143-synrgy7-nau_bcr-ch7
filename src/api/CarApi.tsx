@@ -1,7 +1,7 @@
 import { CarDetail, Car } from '../interfaces/CarInterface'
 import axios from '../config/Api';
 
-const requestGetCarsDetail = async (): Promise<CarDetail[] | null> => {
+export const requestGetCarsDetail = async (): Promise<CarDetail[] | null> => {
     try {
         const token = sessionStorage.getItem('token');
         const result = await axios.get('/car', {
@@ -15,7 +15,7 @@ const requestGetCarsDetail = async (): Promise<CarDetail[] | null> => {
     }
 }
 
-const requestGetCars = async (): Promise<Car[] | null> => {
+export const requestGetCars = async (): Promise<Car[] | null> => {
         try {
             const result = await axios.get('/car');
             return result.data.data.cars;
@@ -24,7 +24,7 @@ const requestGetCars = async (): Promise<Car[] | null> => {
         }
 }
 
-const requestFindCar = async (id: string | undefined): Promise<Car | null> => {
+export const requestFindCar = async (id: string | undefined): Promise<Car | null> => {
     try {
         const token = sessionStorage.getItem('token');
         const result = await axios.get(`/car/${id}`, {
@@ -38,7 +38,7 @@ const requestFindCar = async (id: string | undefined): Promise<Car | null> => {
     }
 }
 
-const requestCreateCar = async (
+export const requestCreateCar = async (
     plate: string,
     manufacture: string,
     model: string,
@@ -74,7 +74,7 @@ const requestCreateCar = async (
     }
 }
 
-const requestUpdateCar = async (
+export const requestUpdateCar = async (
     id: string | undefined,
     plate: string,
     manufacture: string,
@@ -111,7 +111,7 @@ const requestUpdateCar = async (
     }
 }
 
-const requestDeleteCar = async (id: string): Promise<boolean> => {
+export const requestDeleteCar = async (id: string): Promise<boolean> => {
     try {
         const token = sessionStorage.getItem('token');
         await axios.delete(`/car/${id}`, {
@@ -123,13 +123,4 @@ const requestDeleteCar = async (id: string): Promise<boolean> => {
     } catch (err) {
         return false;
     }
-}
-
-export { 
-    requestGetCarsDetail, 
-    requestGetCars, 
-    requestFindCar, 
-    requestCreateCar, 
-    requestUpdateCar, 
-    requestDeleteCar 
 }

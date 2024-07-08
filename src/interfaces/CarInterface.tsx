@@ -2,7 +2,7 @@ interface Deleted {
     deleted_at?: string;
 }
 
-interface CarDetail {
+export interface CarDetail {
     id: string;
     manufacture: string;
     model: string;
@@ -15,7 +15,7 @@ interface CarDetail {
     delete: Deleted;
 }
 
-interface Car {
+export interface Car {
     id: string;
     plate: string;
     manufacture: string;
@@ -31,5 +31,3 @@ interface Car {
     options: string[];
     specs: string[];
 }
-
-export type { CarDetail, Car };

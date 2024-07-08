@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { requestFindCar, requestUpdateCar } from "../../api/CarApi";
-import axios from "../../config/Api";
+import { requestUploadImageCar } from "../../api/ImageApi";
 
 interface FormCarProps {
     id: string | undefined;
@@ -65,23 +65,14 @@ const FormCar: React.FC<FormCarProps> = ({ id }) => {
     }
 
     const uploadImageCar = async () => {
-        if (!image) return;
-        
-        try {
-            const token = sessionStorage.getItem('token');
-            const result = await axios.post('/car/image', {
-                image
-            }, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
+        const result = await requestUploadImageCar(image);
+
+        if (result !== null) {
             // Error to save url link
-            setImageUrl(result.data.data.url);
-        } catch(e) {
-            console.log(e);
-        }
+            setImageUrl(result);
+            console.log(result);
+            console.log(imageUrl);            
+        }        
     }
 
     const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
