@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'react-feather';
-import { Link } from 'react-scroll';
+import { Link as LinkSmooth } from 'react-scroll';
+import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -31,20 +32,23 @@ const Navbar: React.FC = () => {
                         <ul className="space-y-4">
                             {navLinks.map((link, index) => (
                                 <li key={index}>
-                                    <Link
+                                    <LinkSmooth
                                         to={link.to}
                                         smooth={true}
                                         duration={500}
                                         className='cursor-pointer font-medium font-sans hover:text-gray-700'
                                     >
                                         {link.text}
-                                    </Link>
+                                    </LinkSmooth>
                                 </li>
                             ))}
                             <li>
-                                <a href="/login" className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                                <Link
+                                    to="/login"
+                                    className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600"
+                                >
                                     Login
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -61,20 +65,23 @@ const Navbar: React.FC = () => {
                     <ul className="space-x-8 items-center hidden lg:flex">
                         {navLinks.map((link, index) => (
                             <li key={index}>
-                                <Link
+                                <LinkSmooth
                                     to={link.to}
                                     smooth={true}
                                     duration={500}
                                     className='cursor-pointer font-medium font-sans hover:text-gray-700'
                                 >
                                     {link.text}
-                                </Link>
+                                </LinkSmooth>
                             </li>                        
                         ))}
                         <li>
-                            <a href="/login" className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600">
+                            <Link
+                                to={"/login"}
+                                className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600"
+                            >
                                 Login
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                     <div className="lg:hidden">
