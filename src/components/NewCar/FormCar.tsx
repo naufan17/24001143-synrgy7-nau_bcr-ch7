@@ -33,7 +33,7 @@ const FormCar: React.FC = () => {
         )
 
         if (result) {
-            navigate('/list/cars')
+            navigate('/list-cars')
         }
     }
 
