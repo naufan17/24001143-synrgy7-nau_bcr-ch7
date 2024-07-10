@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import Dashboard from '../components/Dashboard/Dashboard';
-// import { Order } from '../interfaces/OrderInterface';
 
 jest.mock('../api/OrderApi', () => {
     const mockOrders = [
@@ -36,11 +35,8 @@ jest.mock('../api/OrderApi', () => {
 });
 
 describe('Dashboard Component', () => {
-    it('renders Dashboard component with order list', async () => {
+    test('renders Dashboard component with order list', async () => {
         render(<Dashboard />);
-
-        await screen.findByText('Chevrolet / Impala');
-        await screen.findByText('Ford / F150');
 
         expect(screen.getByText('Chevrolet / Impala')).toBeInTheDocument();
         expect(screen.getByText('Ford / F150')).toBeInTheDocument();

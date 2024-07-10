@@ -44,35 +44,33 @@ jest.mock('../api/CarApi', () => {
 });
 
 describe('FilterCar Component', () => {
-    it('renders correctly and displays all cars initially', async () => {
+    test('renders correctly and displays all cars initially', async () => {
         render(<FilterCar />);
-        await waitFor(() => {
-            expect(screen.getByText('Lincoln / MKZ')).toBeInTheDocument();
-            expect(screen.getByText('Honda / Civic')).toBeInTheDocument();
-        });
+
+        expect(screen.getByText('Lincoln / MKZ')).toBeInTheDocument();
+        expect(screen.getByText('Honda / Civic')).toBeInTheDocument();
     });
 
-    it('displays error messages when required fields are empty and "Cari Mobil" is clicked', async () => {
+    test('displays error messages when required fields are empty and "Cari Mobil" is clicked', async () => {
         render(<FilterCar />);
+
         fireEvent.click(screen.getByText('Cari Mobil'));
-        expect(await screen.findByText('Date is required')).toBeInTheDocument();
+
+        expect(screen.findByText('Date is required')).toBeInTheDocument();
         expect(screen.getByText('Time is required')).toBeInTheDocument();
         expect(screen.getByText('Capacity is required')).toBeInTheDocument();
     });
 
-    it('filters cars based on capacity', async () => {
+    test('filters cars based on capacity', async () => {
         render(<FilterCar />);
-        await waitFor(() => expect(screen.getByText('Lincoln / MKZ')).toBeInTheDocument());
-
+        
         fireEvent.change(screen.getByLabelText(/Jumlah Penumpang/i), { target: { value: '5' } });
         fireEvent.change(screen.getByLabelText(/Tanggal/i), { target: { value: '2024-07-10' } });
         fireEvent.change(screen.getByLabelText(/Waktu Jemput\/Ambil/i), { target: { value: '10:00' } });
 
         fireEvent.click(screen.getByText('Cari Mobil'));
 
-        await waitFor(() => {
-            expect(screen.getByText('Lincoln / MKZ')).toBeInTheDocument();
-            expect(screen.queryByText('Honda / Civic')).not.toBeInTheDocument();
-        });
+        expect(screen.getByText('Lincoln / MKZ')).toBeInTheDocument();
+        expect(screen.queryByText('Honda / Civic')).not.toBeInTheDocument();
     });
 });

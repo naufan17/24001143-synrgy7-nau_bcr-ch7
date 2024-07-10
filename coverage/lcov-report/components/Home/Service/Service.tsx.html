@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/Common/Modal/Modal.tsx</title>
+    <title>Code coverage report for components/Home/Service/Service.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">components/Common/Modal</a> Modal.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">components/Home/Service</a> Service.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -109,15 +109,11 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,9 +122,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,12 +140,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,58 +156,52 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import { Check } from 'react-feather'
 &nbsp;
-interface ModalProps {
-    show: boolean;
-    onClose: () =&gt; void;
-    onConfirm: () =&gt; void;
-    title?: string;
-    message?: string;
-}
+const Service: React.FC = () =&gt; {
+    const services: string[] = [
+        "Sewa Mobil Dengan Supir di Bali 12 Jam",
+        "Sewa Mobil Lepas Kunci di Bali 24 Jam",
+        "Sewa Mobil Jangka Panjang Bulanan",
+        "Gratis Antar - Jemput Mobil di Bandara",
+        "Layanan Airport Transfer / Drop In Out"
+    ];
 &nbsp;
-const Modal: React.FC&lt;ModalProps&gt; = <span class="fstat-no" title="function not covered" >({</span> show, onClose, onConfirm, title, message }) =&gt; {
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!show) <span class="cstat-no" title="statement not covered" >return null;</span></span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
-        &lt;div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"&gt;
-            &lt;div className="bg-white p-6 rounded-lg border-2 max-w-96"&gt;
-                &lt;div className="flex justify-center items-center mb-5"&gt;
-                    &lt;img 
-                        src="./images/img-BeepBeep.png" 
-                        className='w-48 h-auto'
-                        alt="" 
-                    /&gt;
-                &lt;/div&gt;
-                &lt;div className="flex justify-center items-center mb-5"&gt;
-                    &lt;h2 className="text-lg font-bold"&gt;
-                        {title}
-                    &lt;/h2&gt;
-                &lt;/div&gt;
-                &lt;div className="flex justify-center items-center mb-5"&gt;
-                    &lt;p&gt;
-                        {message}
-                    &lt;/p&gt;
-                &lt;/div&gt;
-                &lt;div className="flex justify-center space-x-4"&gt;
-                    &lt;button 
-                        onClick={onConfirm} 
-                        className="px-4 py-2 bg-blue-800 text-white font-medium rounded hover:bg-blue-700"
-                    &gt;
-                        Ya
-                    &lt;/button&gt;
-                    &lt;button 
-                        onClick={onClose} 
-                        className="px-4 py-2 border-2 border-blue-800 text-blue-800 font-medium rounded hover:bg-blue-200 hover"
-                    &gt;
-                        Tidak
-                    &lt;/button&gt;
+    return (
+        &lt;section id="OurServices"&gt;
+            &lt;div className="relative px-8 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-12 lg:py-16"&gt;
+                &lt;div className="grid gap-12 lg:grid-cols-2"&gt;
+                    &lt;div className="flex justify-center"&gt;
+                        &lt;img className="object-cover h-full" src="images/img_service.png" alt="Service" /&gt;
+                    &lt;/div&gt;
+                    &lt;div className="flex flex-col"&gt;
+                        &lt;div className="mb-6"&gt;
+                            &lt;h2 className="mb-6 font-bold font-sans text-3xl leading-normal justify-center"&gt;
+                                Best Car Rental for any kind of trip in Sleman!
+                            &lt;/h2&gt;
+                            &lt;p className="text-base text-justify font-sans justify-center"&gt;
+                                Sewa mobil di Sleman bersama Binar Car Rental jaminan harga lebih murah dibandingkan yang lain, 
+                                kondisi mobil baru, serta kualitas pelayanan terbaik untuk perjalanan wisata, bisnis, wedding, meeting, dll.
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;ul className="space-y-5"&gt;
+                            {services.map((service, index) =&gt; (
+                                &lt;li key={index} className="flex text-base font-sans"&gt;
+                                    &lt;span className="mr-4 bg-blue-200 rounded-full p-1"&gt;
+                                        &lt;Check color="blue"/&gt;
+                                    &lt;/span&gt;
+                                    {service}
+                                &lt;/li&gt;
+                            ))}
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
-        &lt;/div&gt;
-    );
-};
+        &lt;/section&gt;
+    )
+}
 &nbsp;
-export default Modal;</pre></td></tr></table></pre>
+export default Service;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
