@@ -1,5 +1,5 @@
 interface Deleted {
-    deleted_at?: string;
+    deleted_at?: string | null;
 }
 
 export interface CarDetail {
@@ -28,6 +28,6 @@ export interface Car {
     year: number;
     available: boolean;
     rent_price: number;
-    options: string[];
-    specs: string[];
+    option: string[];
+    spec: string[];
 }

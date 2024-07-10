@@ -23,3 +23,14 @@ export interface Order {
     car: Car;
     user: User;
 }
+
+export interface OrderDetail {
+    id: string;
+    durations: number;
+    rent_start: string;
+    rent_end: string;
+    total_price: number;
+    status: string;
+    created_at: string;
+    updated_at: string;
+}
