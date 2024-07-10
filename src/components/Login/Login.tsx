@@ -71,7 +71,7 @@ const Login: React.FC = () => {
                                 name="username" 
                                 value={username} 
                                 onChange={handleInputChange} 
-                                className="flex-grow w-full h-10 md:h-12 px-4 mb-2 text-sm sm:text-base border-2 rounded-lg focus:outline-none focus:border-slate-300" 
+                                className="flex-grow w-full h-10 md:h-12 px-4 mb-2 text-sm sm:text-base border-2 rounded-lg focus:outline-none focus:border-blue-700" 
                                 required
                             />
                         </div>
@@ -85,7 +85,7 @@ const Login: React.FC = () => {
                                 name="password" 
                                 value={password}
                                 onChange={handleInputChange} 
-                                className="flex-grow w-full h-10 md:h-12 px-4 mb-2 text-sm sm:text-base border-2 rounded-lg focus:outline-none focus:border-slate-300" 
+                                className="flex-grow w-full h-10 md:h-12 px-4 mb-2 text-sm sm:text-base border-2 rounded-lg focus:outline-none focus:border-blue-700" 
                                 required
                             />
                         </div>

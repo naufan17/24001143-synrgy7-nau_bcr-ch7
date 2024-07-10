@@ -149,7 +149,7 @@ const FormCar: React.FC = () => {
                             name="plate"
                             value={plate}
                             onChange={handleInputChange}
-                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
+                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-blue-700"
                             required
                         />
                     </div>
@@ -168,7 +168,7 @@ const FormCar: React.FC = () => {
                             name="manufacture"
                             value={manufacture}
                             onChange={handleInputChange}
-                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
+                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-blue-700"
                             required
                         />
                     </div>
@@ -187,7 +187,7 @@ const FormCar: React.FC = () => {
                             name="model"
                             value={model}
                             onChange={handleInputChange}
-                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
+                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-blue-700"
                             required
                         />
                     </div>
@@ -206,7 +206,7 @@ const FormCar: React.FC = () => {
                             name="capacity"
                             value={capacity}
                             onChange={handleInputChange}
-                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
+                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-blue-700"
                             required
                         />
                     </div>
@@ -225,7 +225,7 @@ const FormCar: React.FC = () => {
                             name="transmission"
                             value={transmission}
                             onChange={handleInputChange}
-                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
+                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-blue-700"
                             required
                         />
                     </div>
@@ -244,7 +244,7 @@ const FormCar: React.FC = () => {
                             name="type"
                             value={type}
                             onChange={handleInputChange}
-                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
+                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-blue-700"
                             required
                         />
                     </div>
@@ -263,7 +263,7 @@ const FormCar: React.FC = () => {
                             name="year"
                             value={year}
                             onChange={handleInputChange}
-                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
+                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-blue-700"
                             required
                         />
                     </div>
@@ -282,7 +282,7 @@ const FormCar: React.FC = () => {
                             name="rentPrice"
                             value={rentPrice}
                             onChange={handleInputChange}
-                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
+                            className="flex w-full h-10 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-blue-700"
                             required
                         />
                     </div>
@@ -300,7 +300,7 @@ const FormCar: React.FC = () => {
                             name="description"
                             value={description}
                             onChange={handleDescriptionChange}
-                            className="flex w-full h-20 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-slate-300"
+                            className="flex w-full h-20 px-2 text-sm sm:text-base border-2 rounded-md focus:outline-none focus:border-blue-700"
                             required
                         >
                         </textarea>

@@ -4,7 +4,7 @@ import GuestRoute from '../middleware/GuestRoute';
 import ProtectedRoute from '../middleware/ProtectRoute';
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import FilterCar from "../pages/FilterCar";
+import SearchCar from "../pages/SearchCar";
 import Dashboard from "../pages/Dashboard";
 import ListCar from "../pages/ListCar";
 import NewCar from '../pages/NewCar';
@@ -15,7 +15,7 @@ const AppRoute: React.FC = () => {
     return (
         <Routes>
             <Route path = "/" element = {<Home/>}/>
-            <Route path = "/cars" element = {<FilterCar/>}/>
+            <Route path = "/search-cars" element = {<SearchCar/>}/>
             <Route path = "/login" element = {<GuestRoute><Login/></GuestRoute>}/>
             <Route path = "/dashboard" element = {<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
             <Route path = "/list-cars" element = {<ProtectedRoute><ListCar/></ProtectedRoute>}/>

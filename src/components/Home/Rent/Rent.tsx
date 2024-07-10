@@ -15,7 +15,7 @@ const Rent: React.FC = () => {
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                             </p>
                             <Link
-                                to={'/cars'}
+                                to={'/search-cars'}
                                 className="inline-flex items-center justify-center h-10 px-5 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600"        
                             >
                                 Mulai Sewa Mobil

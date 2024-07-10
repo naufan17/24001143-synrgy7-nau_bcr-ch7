@@ -3,7 +3,7 @@ import { Car } from '../../interfaces/CarInterface'
 import { requestGetCars } from '../../api/CarApi';
 import ListCar from './CardCar';
 
-const FilterCar: React.FC = () => {
+const SearchCar: React.FC = () => {
     const [cars, setCars] = useState<Car[]>([]);
     const [driverType, setDriverType] = useState<string>('');
     const [date, setDate] = useState<string>('');
@@ -116,9 +116,9 @@ const FilterCar: React.FC = () => {
                                 id="submit-btn"
                                 type="button" 
                                 onClick={handleFilter}
-                                className="inline-flex items-center justify-center h-10 px-4 md:px-1 font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600"
+                                className="inline-flex items-center justify-center h-10 w-20 md:w-full font-semibold font-sans text-white rounded bg-green-500 hover:bg-green-600"
                             >
-                               Cari Mobil
+                               Cari
                             </button>
                         </div>
                     </div>
@@ -132,4 +132,4 @@ const FilterCar: React.FC = () => {
     )
 }
 
-export default FilterCar;
+export default SearchCar;

@@ -23,7 +23,7 @@ const NavProfile: React.FC = () => {
                         aria-label="Open item" 
                         title="Open item"
                         onClick={() => setShowMenu(!showMenu)}
-                        className={`inline-flex w-32 py-1.5 items-center justify-center font-medium text-sm md:text-base ${showMenu? 'border-slate-300 border-x-2 border-t-2 rounded-t-lg' : 'border-slate-200 border-2 rounded-lg'}`}
+                        className={`inline-flex w-32 py-1.5 items-center justify-center font-medium text-sm md:text-base ${showMenu? 'border-x-2 border-t-2 rounded-t-lg' : 'border-slate-200 border-2 rounded-lg'}`}
                     >
                         <img
                             src={'/images/img_photo.png'}
@@ -35,7 +35,7 @@ const NavProfile: React.FC = () => {
                 </div>
                 {showMenu && (
                     <div className="flex items-center justify-end w-full">
-                        <div className="inline-flex w-32 bg-gray-100 border-x-2 border-b-2 border-slate-300 rounded-b-lg hover:bg-gray-200">
+                        <div className="inline-flex w-32 bg-gray-100 border-x-2 border-b-2 border-slate-200 rounded-b-lg hover:bg-gray-200">
                             <button 
                                 onClick={logoutUser}
                                 className="block py-1.5 ml-4 font-medium text-sm md:text-base"
